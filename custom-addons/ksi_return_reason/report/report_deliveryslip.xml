@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ! Edit delivery slip button in delivery order -->
+    <template id="ksi_inherit_delivery_slip_pos" inherit_id="stock.report_delivery_document">
+        <xpath expr="//t[@t-call='web.external_layout']" position="inside">
+            <style>
+                .ttd-item{
+                    height:100px;
+                    font-weight: bold;
+                    color: black !important;
+                }
+                .garis-ttd{
+                    margin-top:100px;
+                    border-bottom: 1px solid black;
+                    width:80%;
+                }
+                .ttd-container{
+                    margin-top:80px;
+                }
+                .reason-container{
+                    margin-top:10px;
+                }
+            </style>
+
+            <!-- ! table atas -->
+            <div style="page-break-inside: avoid">
+                <!-- <div class="container reason-container">
+                    <div class="row justify-content-between">
+                        <div class="ttd-item col-6 text-left">
+                        Return Reason :
+                            <span t-field="o.return_reason"/>
+                        </div>
+                        <div class="ttd-item col-6 text-left">
+                        Custom Reason :
+                                                        <span t-field="o.custom_reason"/>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="container ttd-container">
+                    <div class="row justify-content-between">
+                        <div class="ttd-item col-3 text-center">
+                        Supir
+                            <div class="garis-ttd mx-auto">
+                            </div>
+                        </div>
+                        <div class="ttd-item col-3 text-center">
+                        Gudang
+                            <div class="garis-ttd mx-auto">
+                            </div>
+                        </div>
+                        <div class="ttd-item col-3 text-center">
+                        Quality Control
+                            <div class="garis-ttd mx-auto">
+                            </div>
+                        </div>
+                        <div class="ttd-item col-3 text-center">
+                        Customer
+                            <div class="garis-ttd mx-auto">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </xpath>
+    </template>
+
+</odoo>

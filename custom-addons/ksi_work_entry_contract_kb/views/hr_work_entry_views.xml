@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ! form -->
+    <record id="hr_work_entry_view_form_inherit_hr_work_entry" model="ir.ui.view">
+        <field name="name">ksi.hr.work.entry.view.form.inherit</field>
+        <field name="model">hr.work.entry</field>
+        <field name="inherit_id" ref="hr_work_entry.hr_work_entry_view_form"/>
+        <field name="arch" type="xml">
+            <field name="date_start" position='before'>
+                <field name="schedule_date_start" invisible='1'/>
+                <field name="schedule_date_stop" invisible='1'/>
+            </field>
+        </field>
+    </record>
+
+    <!-- ! list/tree -->
+    <record id="hr_work_entry_view_tree_inherit_hr_work_entry" model="ir.ui.view">
+        <field name="name">ksi.hr.work.entry.view.list.inherit</field>
+        <field name="model">hr.work.entry</field>
+        <field name="inherit_id" ref="hr_work_entry.hr_work_entry_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </xpath>
+            <xpath expr="//tree" position="attributes">
+                <attribute name="decoration-danger">is_late</attribute>
+                <attribute name="editable">top</attribute>
+            </xpath>
+            <field name="date_start" position="before">
+                <field name="employee_id" />
+                <field name="contract_id" optional='False'/>
+                <field name="resource_calendar_id" optional='False'/>
+                <field name="schedule_date_start" />
+                <field name="schedule_date_stop" />
+                <field name="lembur_level" optional="hide"/>
+                <field name="lembur_amount" optional="hide"/>
+            </field>
+
+            <xpath expr="//field[@name='duration']" position="attributes">
+                <attribute name="string" value="Work Hours ea">Work Hours</attribute>
+            </xpath>
+
+            <field name="date_start" position='replace'>
+                <field name="date_start" string='Check In'/>
+            </field>
+            <field name="date_stop" position='replace'>
+                <field name="date_stop" string='Check Out'/>
+            </field>
+
+            <field name="date_stop" position="after">
+                <field name="late_hours" widget="float_time"/>
+                <field name="is_late" optional='False'/>
+            </field>
+
+            <field name="is_late" position='after'>
+                <field name="duration" position='move'/>
+                <field name="state" position='move'/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

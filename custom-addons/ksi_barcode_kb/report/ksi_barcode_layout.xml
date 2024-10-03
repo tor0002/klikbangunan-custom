@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="ksi_custom_layout_barcode" name="ksi_custom_layout_barcode">
+            <t t-call="web.basic_layout">
+                <div class="page ksi_custom">
+                    <t t-call="web.html_container">
+                        <!-- ! Mulai Looping row -->
+                        <t t-foreach="data_label_row" t-as="data_label_item">
+                            <div class="ksi_container">
+                                <div class="ksi-row">
+                                    <t t-foreach="data_label_item" t-as="label_product">
+                                        <t t-if="label_product">
+                                            <div class="ksi-item">
+                                                <t t-if="label_product[1]">
+                                                    <div>
+                                                        <div class="ksi-barcode" t-out="label_product[1]" t-options="{'widget': 'barcode', 'quiet': 0, 'symbology': 'auto', 'img_style': 'width:30mm;height:5mm'}"/>
+                                                    </div>
+                                                </t>
+                                                <div class="label_text text-center">
+                                                    <strong t-esc="label_product[0]"/>
+                                                </div>
+                                                <!-- ! Ini dia biang keroknya, row bootstrap harus pake no gutters biar ga ada defaul margin and padding -->
+                                                <div class="row no-gutters">
+                                                    <!-- ! Kalo gak pake harga, dia ketengah -->
+                                                    <t t-if="not price_included">
+                                                        <div class="col-12 label_barcode text-center" style="font-size:1.5mm;width:100%">
+                                                            <strong t-esc="label_product[1] " />
+                                                        </div>
+                                                    </t>
+                                                    <!-- ! Kalo pake harga  -->
+                                                    <t t-if="price_included">
+                                                        <div class="col-6 label_barcode text-left" style="font-size:1.5mm;width:100%">
+                                                            <strong t-esc="label_product[1] " />
+                                                        </div>
+                                                        
+                                                        <div class="col-6 label_price" style="font-size:1.5mm">
+                                                            <strong t-esc="'Rp ' + '{0:,.2f}'.format(int(label_product[2]))" style="font-size:1.5mm;width:100%" />
+
+                                                        </div>
+                                                        
+                                                    </t>
+                                                </div>
+                                            </div>
+                                        </t>
+
+
+                                    </t>
+                                </div>
+                            </div>
+                        </t>
+
+                    </t>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

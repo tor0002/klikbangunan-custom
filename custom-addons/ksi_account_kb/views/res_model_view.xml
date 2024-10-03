@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+    
+        <record id="res_config_settings_inherit_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <div id="analytic" position="after">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <h2>Sales Discount Chart of Accounts</h2>
+                                <div class="row mt16 o_settings_container" id="sales_disc">
+                                    <div class="col-12 col-lg-6 o_setting_box">
+                                        <div class="o_setting_left_pane"/>
+                                        <div class="o_setting_right_pane">
+                                            <span class="o_form_label">Sales Discount Chart of Accounts</span>
+                                            <div class="text-muted">
+                                                Sales Discount Chart of Accounts.
+                                            </div>
+                                            <div class="content-group">
+                                                <div class="row mt16">
+                                                    <label for="sales_coa_discount_id" class="col-lg-3 o_light_label" string="Account"/>
+                                                    <field name="sales_coa_discount_id" options="{'no_create_edit': True, 'no_open': True}"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <h2>Purchases Discount Chart of Accounts</h2>
+                                <div class="row mt16 o_settings_container" id="purchases_disc">
+                                    <div class="col-12 col-lg-6 o_setting_box">
+                                        <div class="o_setting_left_pane"/>
+                                        <div class="o_setting_right_pane">
+                                            <span class="o_form_label">Purchases Discount Chart of Accounts</span>
+                                            <div class="text-muted">
+                                                Purchases Discount Chart of Accounts.
+                                            </div>
+                                            <div class="content-group">
+                                                <div class="row mt16">
+                                                    <label for="purchases_coa_discount_id" class="col-lg-3 o_light_label" string="Account"/>
+                                                    <field name="purchases_coa_discount_id" options="{'no_create_edit': True, 'no_open': True}"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </field>
+        </record>
+    
+    </data>
+    
+    <!-- <template id="inherit_res_config_account" name="coa" inherit_id="account.res_config_settings_view_form">
+        <xpath expr="//div[@id='default_incoterm']/div[2]" position="after">
+            <div class="col-12 col-lg-6 o_setting_box" id="coa_settings">
+                <div class="o_setting_right_pane">
+                    <label for="coa_id"/>
+                    <div class="text-muted" id="account_reports">
+                        Chart Of Accounts
+                    </div>
+                </div>
+                    <div class="o_setting_right_pane">
+                    <field name="coa_id"/>
+                </div>
+            </div>
+        </xpath>
+    </template> -->
+
+</odoo>

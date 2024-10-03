@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <record id="report_kb_sales_and_margin" model="ir.actions.report">
+            <field name="name">KB Sales &amp; Margin</field>
+            <field name="model">ksi.report.kb.sale.margin</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">ksi_report_kb.sale_margin_xlsx</field>
+            <field name="report_file">ksi_report_kb.sale_margin_xlsx</field>
+            <field name="print_report_name">'KB SALES &amp; MARGIN XLSX'</field>
+        </record>
+
+        <record id="report_kb_target_vs_sales" model="ir.actions.report">
+            <field name="name">KB Target vs Sales</field>
+            <field name="model">target.vs.sales.wizard</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">ksi_report_kb.target.vs.sales</field>
+            <field name="report_file">ksi_report_kb.target.vs.sales</field>
+            <field name="print_report_name">'KB TARGET VS SALES'</field>
+
+            <!-- ! Binding tu cuman buat server action -->
+            <!-- <field name="binding_model_id" ref="model_target_vs_sales_wizard"/>
+            <field name="binding_type">form</field> -->
+        </record>
+
+        <record id="report_kb_sale_transaction" model="ir.actions.report">
+            <field name="name">KB Sale Transaction</field>
+            <field name="model">ksi.report.kb.sale.transaction</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">ksi_report_kb.sale_transaction_xlsx</field>
+            <field name="report_file">ksi_report_kb.sale_transaction_xlsx</field>
+            <field name="print_report_name">'KB SALE TRANSACTION XLSX'</field>
+        </record>
+    </data>
+</odoo>

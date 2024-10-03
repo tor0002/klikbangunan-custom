@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="ksi_report_custom_pos_action" model="ir.actions.report">
+        <field name="name">KSI Custom POS</field>
+        <field name="model">ksi.pos.report.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">ksi_post_report.report_pos</field>
+        <field name="report_file">ksi_post_report.report_pos</field>
+        <field name="print_report_name">'KSI CUSTOM REPORT'</field>
+        <!-- <field name="binding_model_id" ref="model_action_name"/> -->
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

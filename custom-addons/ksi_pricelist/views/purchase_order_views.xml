@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="purchase_order_form_inherit_purchase" model="ir.ui.view">
+        <field name="name">purchase.order.view.form.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <field name="picking_type_id" position='after'>
+                <button string="UPDATE PRICE FROM PRICELIST" name="update_price_from_pricelist" type="object" class="oe_highlight" groups='ksi_pricelist.group_ksi_pricelist_refresh_po_price' attrs="{ 'invisible' : [('state', '!=', 'draft')]}"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

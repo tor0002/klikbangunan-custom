@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_employee_form_inherit_hr" model="ir.ui.view">
+        <field name="name">hr.employee.view.form.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='personal_information']//group[@name='has_work_permit']" position="after">
+                <group name="nilai_assesment" string="Nilai Assesment">
+                    <field name="nilai_disc" />
+                    <field name="nilai_iq" />
+                    <field name="nilai_papikostik" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+    
+</odoo>

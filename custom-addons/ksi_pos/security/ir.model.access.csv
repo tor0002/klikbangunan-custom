@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pos_session_none,ksi_pos.session none,point_of_sale.model_pos_session,group_pos_none,0,0,0,0

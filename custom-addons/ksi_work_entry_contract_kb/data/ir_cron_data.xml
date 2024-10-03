@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="ksi_hr_work_entry_cron" model="ir.cron">
+        <field name="name">KSI Work Entry Daily Absence</field>
+        <field name="model_id" ref="model_hr_work_entry"/>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="priority">0</field>
+        <field name="state">code</field>
+        <field name="code">model.check_daily_absence()</field>
+    </record>
+
+</odoo>

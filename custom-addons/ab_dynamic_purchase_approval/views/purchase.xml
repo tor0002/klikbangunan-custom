@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <record id="view_form_inherit_purchase_order" model="ir.ui.view">
+            <field name="name">purchase.order.view.form.inherit</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[1]" position="after">
+                    <page string="Approval Information">
+                        <group string='Approval'>
+                            <field name="last_approval_id"/>
+                            <field name="last_approval_date" />
+                        </group>
+                        <group string='Refused' col='4'>
+                            <field name="refused_id" />
+                            <field name="refused_date" />
+                        </group>
+                        <group>
+                            <field name="refused_reason" />
+                        </group>
+                    </page>
+                </xpath>
+                <xpath expr="//button[@name='action_rfq_send'][1]" position="before">
+                    <button string="Confirm Order" name="button_request" class="btn-primary" type="object" attrs="{'invisible': ['|',('custom_approval', '=', False), ('state', '!=', 'draft')]}"/>
+                </xpath>
+                <xpath expr="//button[@name='button_confirm'][2]" position="attributes">
+                    <attribute name="attrs">{'invisible': ['|',('custom_approval', '=', True)]}</attribute>
+                </xpath>
+                <xpath expr="//button[@name='button_approve']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//button[@name='button_draft']" position="attributes">
+                    <attribute name="attrs">{'invisible': ['|',('is_refused', '=', True)]}</attribute>
+                </xpath>
+                <xpath expr="//button[@name='button_cancel']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//button[@name='button_approve']" position="before">
+                    <button string="Approve" name="button_custom_approval" type="object" class="oe_highlight" attrs="{'invisible': ['|',('state', 'not in', ['to approve']), ('is_approval', '=', False)]}"/>
+                    <button string="Cancel" name="button_cancel" type="object" attrs="{'invisible': ['|', ('is_approval', '=', False), '&amp;', ('state', '!=', 'to approve'), ('is_approval', '=', True)]}"/>
+                    <button string="Refuse" name="refused_purchase_order" type="object" attrs="{'invisible': ['|', ('is_approval', '=', False), '&amp;', ('state', '!=', 'to approve'), ('is_approval', '=', True)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="approval_id" invisible='1'/>
+                    <field name="is_approval" invisible='1'/>
+                    <field name="is_refused" invisible='1'/>
+                    <field name="custom_approval" invisible='1'/>
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+
+</odoo>

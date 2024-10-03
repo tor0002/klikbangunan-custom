@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ksi_report_kb_res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.ksi.report.kb</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="80"/>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@data-key='point_of_sale']" position="inside">
+                <!-- <div class="app_settings_block" data-string="KSI Report KB" string="KSI Report KB" data-key="ksi_report_kb" groups="point_of_sale.group_pos_manager"> -->
+                <h2>KB Custom Report</h2>
+                <div class="row mt16 o_settings_container" name="pincode_setting_container">
+                    <div class="col-12 col-lg-6 o_setting_box" title="Set the data for KB Custom Report">
+                        <div class="o_setting_left_pane">
+
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <span class="o_form_label">Sale Transaction</span>
+                            <div class="o_statusbar_buttons">
+                                <button class="btn btn-primary" string="Generate / Update Data" type="object" name="action_generate"/>
+                                <!-- <strong>Generate / Update Data</strong> -->
+                                <!-- </button> -->
+                                <button class="btn btn-secondary" string="Print Data" type="object" name="action_print"/>
+                                <!-- <button class="btn btn-primary" string="Export Data" type="object" name="do_export"/> -->
+                                <button class="btn btn-primary" string="Clear Data" type="object" name="action_clear" confirm="Are you sure that you want to clear all of Sale Transaction data?"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </xpath>
+        </field>
+    </record>
+
+    <!-- <record id="action_ksi_report_kb_settings" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'point_of_sale', 'bin_size': False}</field>
+    </record> -->
+
+    <!-- <menuitem id="ksi_report_kb_menu_pos_settings" name="Configuration" parent="menu_pos_root" sequence="99" action="action_ksi_report_kb_settings" groups="point_of_sale.group_pos_manager"/> -->
+</odoo>

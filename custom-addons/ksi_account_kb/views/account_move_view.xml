@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+
+        <record id="account_move_form_inherit_ksi_account_kb" model="ir.ui.view">
+            <field name="name">account.move.view.form.inherit.ksi.account.kb</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[1]" position="before">
+                    <!-- <div class="col col-md-auto"> -->
+                    <!-- <div> -->
+                    <label for="is_new_purchase" string="Is it a new Purchase?" invisible="1"/>
+                    <field name="is_new_purchase" class="oe_inline" invisible="1"/>
+                    <!-- </div> -->
+                    <!-- </div> -->
+                </xpath>
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="partner_id_domain" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name="domain">partner_id_domain</attribute>
+                </xpath>
+                <!-- START: DISABLE EDIT QTY AND PRICE -->
+                <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='account_id']" position="after">
+                    <field name="line_move_type" invisible="1"/>
+                    <field name="line_is_new_purchase" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']/tree/field[@name='account_id']" position="after">
+                    <field name="line_move_type" invisible="1"/>
+                    <field name="line_is_new_purchase" invisible="1"/>
+                </xpath>
+                <!-- <xpath expr="//form/sheet/field[@name='move_type']" position="attributes">
+                    <attribute name="attrs">{'invisible': 0}</attribute>
+                </xpath> -->
+
+                <!-- ! di komen dulu, doi minta hak akses -->
+                <!-- <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='quantity']" position="attributes">
+                    <attribute name="attrs">{'readonly': ['&amp;', ('line_move_type','in',['in_invoice', 'in_refund']), ('line_is_new_purchase','!=',True)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='price_unit']" position="attributes">
+                    <attribute name="attrs">{'readonly': ['&amp;', ('line_move_type','in',['in_invoice', 'in_refund']), ('line_is_new_purchase','!=',True)]}</attribute>
+                </xpath> -->
+
+                <!-- FINISH: DISABLE EDIT QTY AND PRICE -->
+                <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='price_unit']" position="after">
+                    <field name="first_disc"/>
+                    <field name="second_disc"/>
+                    <field name="third_disc"/>
+                    <field name="fourth_disc"/>
+                    <field name="sub_total_disc" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']/tree/field[@name='price_unit']" position="after">
+                    <field name="first_disc" invisible="1"/>
+                    <field name="second_disc" invisible="1"/>
+                    <field name="third_disc" invisible="1"/>
+                    <field name="fourth_disc" invisible="1"/>
+                    <field name="sub_total_disc" invisible="1"/>
+                </xpath>
+                <!-- <xpath expr="//field[@name='amount_untaxed']" position="after">
+                    <field name="amount_after_disc" />
+                </xpath> -->
+                <field name="tax_totals_json" position="before">
+                    <field name="discount_amount" invisible="1" />
+                </field>
+            </field>
+        </record>
+
+    </data>
+
+</odoo>

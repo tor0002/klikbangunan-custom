@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Membuat View Tree/List Custom Adjustment -->
+
+    <record id="custom_adjustment_view_tree" model="ir.ui.view">
+        <field name="name">custom.adjustment.tree</field>
+        <field name="model">custom.adjustment</field>
+        <field name="arch" type="xml">
+            <tree string="Custom Adjustment List">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Membuat View Form Custom Adjustment -->
+
+    <record id="custom_adjustment_view_form" model="ir.ui.view">
+        <field name="name">custom.adjustment.form</field>
+        <field name="model">custom.adjustment</field>
+        <field name="arch" type="xml">
+            <form string="Custom Adjustment Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    <notebook>
+                        <page string="Keterangan">
+                            <group>
+                                <field name="description"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Membuat Action/Event Custom Adjustment -->
+
+    <record id="custom_adjustment_action" model="ir.actions.act_window">
+        <field name="name">Custom Adjustment</field>
+        <field name="res_model">custom.adjustment</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p name="o_view_nocontent_smiling_face">
+                Buatlah penyesuaian pertamamu ...
+            </p>
+        </field>
+    </record>
+
+    <!-- Membuat Menu Dashboard -->
+
+    <menuitem id="menu_dashboard_custom_adjustment" name="Custom Adjustment"/>
+
+    <!-- Membuat Menu Bar Training -->
+
+    <menuitem id="menu_bar_custom_adjustment" name="Custom" parent="menu_dashboard_custom_adjustment"/>
+
+    <!-- Membuat Menu Item Custom Adjustment -->
+
+    <menuitem id="menu_item_custom_adjustment" name="Custom Adjustment" parent="menu_bar_custom_adjustment" action="custom_adjustment_action"/>
+
+
+</odoo>

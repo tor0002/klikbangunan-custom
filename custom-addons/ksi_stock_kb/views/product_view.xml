@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- <record id="ksi_product_supplierinfo_action_server" model="ir.actions.server">
+        <field name="name">Update Sales Pricelist</field>
+        <field name="model_id" ref="model_product_supplierinfo"/>
+        <field name="binding_model_id" ref="model_product_supplierinfo"/>
+        <field name="state">code</field>
+        <field name="code">action = records.update_sales_pricelist()</field>
+    </record> -->
+    <record id="product_template_form_view_ksi_stock_kb" model="ir.ui.view">
+        <field name="name">product.template.common.form.ksi.stock.kb</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <field name="name" position="attributes">
+                <attribute name="readonly">1</attribute>
+                <attribute name="force_save">1</attribute>
+                <!-- <attribute name="placeholder">Masukkan nama produk...</attribute> -->
+            </field>
+            <div name="options" position="before">
+                <div style="display:flex;justify-content:space-between;margin-top:30px">
+                    <div style="margin-right: 20px" class="w-50">
+                        <label for="nama_merk"/>
+                        <field name="nama_merk" placeholder='Masukkan Nama Merk...'/>
+                    </div>
+                    <div style="margin-right: 20px" class="w-50">
+                        <label for="keterangan"/>
+                        <field name="keterangan" placeholder='Masukkan Keterangan...'/>
+                    </div>
+                </div>
+                <div style="display:flex;justify-content:space-between;margin-top:10px">
+                    <div style="margin-right: 20px" class="w-50">
+                        <label for="kemasan"/>
+                        <field name="kemasan" placeholder='Masukkan Kemasan...'/>
+                    </div>
+                    <div style="margin-right: 20px" class="w-50">
+                        <label for="ukuran"/>
+                        <field name="ukuran" placeholder='Masukkan Ukuran...'/>
+                    </div>
+                </div>
+                <div class="w-25 my-3">
+                    <label for="merk_prefix"/>
+                    <field name="merk_prefix" />
+                </div>
+            </div>
+            <field name="categ_id" position="attributes">
+                <attribute name="options">{'no_create': True, 'no_quick_create': True, 'no_create_edit': True, 'no_open': True}</attribute>
+            </field>
+            <xpath expr="//field[@name='categ_id']" position="after">
+                <field name="parrent_category"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_template_only_form_view_ksi_stock_kb" model="ir.ui.view">
+        <field name="name">product.template.only.form.ksi.stock.kb</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <field name="barcode" position="attributes">
+                <!-- <attribute name="required">1</attribute> -->
+                <attribute name="placeholder">Masukkan sku / barcode di sini...</attribute>
+            </field>
+
+            <!-- !hide dulu -->
+            <field name="barcode" position="after">
+                <field name="barcode_and_seq" invisible="1"/>
+                <field name="auto_barcode" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="product_supplierinfo_form_view_ksi_stock_kb" model="ir.ui.view">
+        <field name="name">product.supplierinfo.form.view.ksi.stock.kb</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="inherit_id" ref="product.product_supplierinfo_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form[1]" position="inside">
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </xpath>
+
+            <!-- ! Tarik dulu -->
+            <!-- <xpath expr="//label[@for='price']" position="before">
+            </xpath> -->
+            <field name="company_id" position="after">
+                <field name="product_pricelist_id" />
+                <field name="sales_price_before" />
+                <label for="margin_ho"/>
+                <div class="o_row no-gutters d-flex">
+                    <field name="margin_ho" />
+                    <span class="font-weight-bold">%</span>
+                </div>
+                <label for="margin_toko"/>
+                <div class="o_row no-gutters d-flex">
+                    <field name="margin_toko" />
+                    <span class="font-weight-bold">%</span>
+                </div>
+                <field name="sales_price" />
+                <button name="update_sales_pricelist" type="object" class="btn btn-primary oe_read_only" string="Update Sales Pricelist"/>
+            </field>
+
+            <xpath expr="//label[@for='price']" position="before">
+                <field name="price_before_discount" />
+                <field name="first_discount" />
+                <field name="second_discount" />
+                <field name="third_discount" />
+                <field name="fourth_discount" />
+                <field name="fifth_discount" />
+                <field name="price_after_discount" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_supplierinfo_tree_view_ksi_stock_kb" model="ir.ui.view">
+        <field name="name">product.supplierinfo.tree.view.ksi.stock.kb</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="inherit_id" ref="product.product_supplierinfo_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="editable">top</attribute>
+            </xpath>
+            <xpath expr="//tree/field[@name='currency_id']" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </xpath>
+            <xpath expr="//tree/field[@name='min_qty']" position="after">
+                <field name="price_before_discount" readonly="1"/>
+                <field name="first_discount" readonly="1"/>
+                <field name="second_discount" readonly="1"/>
+                <field name="third_discount" readonly="1"/>
+                <field name="fourth_discount" readonly="1"/>
+                <field name="fifth_discount" readonly="1"/>
+                <field name="price_after_discount" invisible="1"/>
+            </xpath>
+            <!-- <xpath expr="//tree/field[@name='min_qty']" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </xpath> -->
+
+            <!-- ! Matiin readonly -->
+            <!-- ! bug parah jir, ini knp lgi, klo ngedit vendor pricelist lewat wizard many2one malah nge unlink -->
+            <!-- <field name="product_tmpl_id" position="replace">
+                <field name="product_tmpl_id" string="Product" invisible="context.get('visible_product_tmpl_id', True)"/>
+            </field>
+            <field name="name" position="replace">
+                <field name="name"/>
+            </field> -->
+
+            <xpath expr="//tree/field[@name='price']" position="after">
+                <!-- <header> -->
+                <!-- <button name="action_view_form" type="object" string="View Form"/> -->
+                <!-- </header> -->
+                <!-- <label for="field_name"/> -->
+                <!-- <div class="o_row"> -->
+                <!-- <field name="field_name"/> -->
+                <button name="open_view" type="object" string="View" class="oe_highlight"/>
+                <!-- </div> -->
+            </xpath>
+
+            <!-- !Margin ho -->
+            <!-- <field name="price" position="after">
+
+                <field name="product_pricelist_id" />
+                <field name="sales_price_before" readonly="1" />
+                <field name="margin_ho" />
+                <field name="margin_toko" />
+                <field name="sales_price" decoration-danger="sales_price_before!=sales_price"/>
+
+
+
+
+
+            </field> -->
+        </field>
+    </record>
+
+</odoo>

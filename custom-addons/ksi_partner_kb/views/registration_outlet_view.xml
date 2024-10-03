@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="registration_outlet_view_tree" model="ir.ui.view">
+            <field name="name">registration.outlet.view.tree</field>
+            <field name="model">registration.outlet</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="registration_outlet_action" model="ir.actions.act_window">
+            <field name="name">Registration Outlet</field>
+            <field name="res_model">registration.outlet</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="registration_outlet_menu" name="Registration Outlet" sequence="102" parent="ksi_partner_kb.menu_sales_ksi_custom" action="registration_outlet_action"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- <record id="ksi_auto_return_inherit_account_move_view_form" model="ir.ui.view">
+        <field name="name">account.move.view.form.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+          
+        </field>
+    </record> -->
+
+    <!-- <record id="ksi_auto_return_inherit_stock_picking_view_form" model="ir.ui.view">
+        <field name="name">stock.picking.view.form.inherit</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <button name="action_cancel" position="after">
+                <button name="auto_return" string="Create Refunds" type="object"/>
+            </button>
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="dito"/>
+            </xpath>
+          
+        </field>
+    </record> -->
+    
+</odoo>

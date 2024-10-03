@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <record id="ksi_payroll_structure_types_monthly" model="hr.payroll.structure.type">
+            <field name="name">Monthly</field>
+        </record>
+
+        <record id="ksi_payroll_structure_types_weekly" model="hr.payroll.structure.type">
+            <field name="name">Weekly</field>
+        </record>
+    </data>
+
+
+</odoo>

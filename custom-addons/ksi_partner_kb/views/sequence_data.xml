@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data noupdate="0">
+        <!-- Format: M/CompanyCode/DDMMSeq (Joining date)] -->
+
+        <!-- DC : Klik Bangunan -->
+        <record id="seq_res_partner_dc" model="ir.sequence">
+            <field name="name">Customer Id - Klik Bangunan (DC)</field>
+            <field name="code">res.partner</field>
+            <field name="prefix">M/DC/%(day)s%(month)s</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="1"/>
+            <!-- SET 1 Company ID! (select id from res_company where id=1)-->
+        </record>
+
+        <!-- KB01 : Klik Bangunan -->
+        <record id="seq_res_partner_kb01" model="ir.sequence">
+            <field name="name">Customer Id - Klik Bangunan (KB01)</field>
+            <field name="code">res.partner</field>
+            <field name="prefix">M/KB01/%(day)s%(month)s</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="3"/>
+            <!-- SET 3 Company ID! (select id from res_company where id=3)-->
+        </record>
+
+        <!-- KB02 : Klik Bangunana -->
+        <record id="seq_res_partner_kb02" model="ir.sequence">
+            <field name="name">Customer Id - Klik Bangunan (KB02)</field>
+            <field name="code">res.partner</field>
+            <field name="prefix">M/KB02/%(day)s%(month)s</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="2"/>
+            <!-- SET 2 Company ID! (select id from res_company where id=2)-->
+        </record>
+
+        <!-- KB03 : Klik Bangunan -->
+        <record id="seq_res_partner_kb03" model="ir.sequence">
+            <field name="name">Customer Id - Klik Bangunan (KB03)</field>
+            <field name="code">res.partner</field>
+            <field name="prefix">M/KB03/%(day)s%(month)s</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="5"/>
+            <!-- SET 5 Company ID! (select id from res_company where id=5)-->
+        </record>
+
+        <!-- KB04 : Super Bangunan -->
+        <record id="seq_res_partner_kb04" model="ir.sequence">
+            <field name="name">Customer Id - Super Bangunan (KB04)</field>
+            <field name="code">res.partner</field>
+            <field name="prefix">M/KB04/%(day)s%(month)s</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="4"/>
+            <!-- SET 4 Company ID! (select id from res_company where id=4)-->
+        </record>
+
+        <!-- KB05 : Klik Bangunan -->
+        <record id="seq_res_partner_kb05" model="ir.sequence">
+            <field name="name">Customer Id - Klik Bangunan (KB05)</field>
+            <field name="code">res.partner</field>
+            <field name="prefix">M/KB05/%(day)s%(month)s</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="6"/>
+            <!-- SET 6 Company ID! (select id from res_company where id=6)-->
+        </record>
+    </data>
+
+</odoo>

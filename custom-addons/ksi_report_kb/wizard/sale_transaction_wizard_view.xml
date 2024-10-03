@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="ksi_report_kb_sale_transaction_wizard_view_form" model="ir.ui.view">
+        <field name="name">ksi.report.kb.sale.transasction.wizard.view.form</field>
+        <field name="model">ksi.report.kb.sale.transaction.wizard</field>
+        <field name="arch" type="xml">
+            <form string="KSI Report KB - Sale Transaction Wizard">
+                <sheet>
+                    <group>
+                        <div class="alert alert-warning" role="alert">
+                            <field name="warning_message" readonly="1"/>
+                        </div>
+                    </group>
+                </sheet>
+                <footer>
+                    <!-- <button string="Generate" class="btn-primary" data-hotkey="q" type="object" name="action_generate"/> -->
+                    <!-- <button string="Print" class="btn-primary" data-hotkey="p" type="object" name="action_print"/> -->
+                    <!-- <button string="Export" class="btn-primary" data-hotkey="e" type="object" name="do_export"/> -->
+                    <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="ksi_report_kb_sale_transaction_wizard_action" model="ir.actions.act_window">
+        <field name="name">Sale Transaction Wizard</field>
+        <field name="res_model">ksi.report.kb.sale.transaction.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- <menuitem id="menu_ksi_report_kb_sale_transaction_wizard" name="Sale Transaction (Wizard)" action="ksi_report_kb_sale_transaction_wizard_action" parent="menu_point_ksi_rep_kb" sequence="1"/> -->
+
+</odoo>

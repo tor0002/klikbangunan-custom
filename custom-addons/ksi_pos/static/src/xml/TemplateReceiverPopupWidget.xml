@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="KSIInherit_TemplateReceiverPopupWidget" t-inherit="sh_pos_order_sync.TemplateReceiverPopupWidget" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('sh_main_body')]" position="replace">
+            <div class="main-body touch-scrollable scrollable-y note_body sh_main_body">
+                <div class="main_div_pos_session">
+                    <table class="session_table">
+                        <t t-if="env.pos.all_session">
+                            <t t-foreach="env.pos.all_session" t-as="each_session">
+                                <tr t-att-data-value="each_session.config_id[0]" class="session_row" t-on-click="onClickSessionRow">
+                                    <t t-if="env.pos.db.config_by_id[each_session.config_id[0]]">
+                                        <td>
+                                            <t t-if="env.pos.db.config_by_id[each_session.config_id[0]].sh_nick_name">
+                                                <t t-esc="env.pos.db.config_by_id[each_session.config_id[0]].sh_nick_name" />
+                                            </t>
+                                            <t t-else="">
+                                                <t t-esc="env.pos.db.config_by_id[each_session.config_id[0]].name" />
+                                            </t>
+                                        </td>
+                                    </t>
+                                </tr>
+                            </t>
+                        </t>
+                    </table>
+                </div>
+            </div>
+        </xpath>
+    </t>
+    
+</templates>

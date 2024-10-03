@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="media_acquisition_view_tree" model="ir.ui.view">
+            <field name="name">media.acquisition.view.tree</field>
+            <field name="model">media.acquisition</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="media_acquisition_action" model="ir.actions.act_window">
+            <field name="name">Media Acquisition</field>
+            <field name="res_model">media.acquisition</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="media_acquisition_menu" name="Media Acquisition" sequence="103" parent="ksi_partner_kb.menu_sales_ksi_custom" action="media_acquisition_action"/>
+
+    </data>
+</odoo>

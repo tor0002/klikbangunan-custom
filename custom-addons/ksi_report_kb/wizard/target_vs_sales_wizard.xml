@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="target_vs_sales_wizard_view_form" model="ir.ui.view">
+            <field name="name">target.vs.sales.wizard.view.form</field>
+            <field name="model">target.vs.sales.wizard</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="date_from" />
+                            <field name="date_to" />
+                            <field name="company_ids" widget="many2many_tags"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string="Print" class="btn-primary" data-hotkey="q" type="object" name="action_print"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="target_vs_sales_wizard_action" model="ir.actions.act_window">
+            <field name="name">Target vs Sales</field>
+            <field name="res_model">target.vs.sales.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <!-- <menuitem id="menu_ksi_report_kb_sales_and_margin" name="Sales &amp; Margin" action="target_vs_sales_wizard_action" parent="menu_point_ksi_rep_kb" sequence="1"/> -->
+        <!-- <menuitem id="menu_ksi_report_kb_target_vs_sales" name="Target vs Sales" action="target_vs_sales_wizard_action" parent="menu_point_ksi_rep_kb" sequence="1"/> -->
+        <!-- <menuitem id="menu_ksi_report_kb_transaksi_analysis" name="Transaction Analysis" action="target_vs_sales_wizard_action" parent="menu_point_ksi_rep_kb" sequence="1"/> -->
+        <!-- <menuitem id="menu_ksi_report_kb_forecast_and_realization" name="Forecast &amp; Realization" action="target_vs_sales_wizard_action" parent="menu_point_ksi_rep_kb" sequence="1"/> -->
+        <!-- <menuitem id="menu_ksi_report_kb_saldo_inventory" name="Saldo Inventory" action="target_vs_sales_wizard_action" parent="menu_point_ksi_rep_kb" sequence="1"/> -->
+        <!-- <menuitem id="menu_ksi_report_kb_target_sales" name="Target Sales" action="target_vs_sales_wizard_action" parent="menu_point_ksi_rep_kb" sequence="1"/> -->
+
+    </data>
+</odoo>

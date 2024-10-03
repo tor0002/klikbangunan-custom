@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_hr_payslip_form_inherit_hr_payroll" model="ir.ui.view">
+        <field name="name">hr.payslip.view.form.inherit</field>
+        <field name="model">hr.payslip</field>
+        <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='compute_sheet']" position="before">
+                <button string="Recompute Worked Days" name="recompute_worked_day_lines" type="object" attrs="{'invisible': ['|', ('state', '!=', 'draft'), ('credit_note', '=', True)]}" class="oe_highlight" help="Recompute worked day lines"/>
+            </xpath>
+            <xpath expr="//field[@name='worked_days_line_ids']//field[@name='amount']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='worked_days_line_ids']//field[@name='number_of_days']" position="before">
+                <field name="count" />
+            </xpath>
+        </field>
+    </record>
+    <record id="ksi_payroll_kb_inherit_hr_payslip_input_hr_view_form" model="ir.ui.view">
+        <field name="name">hr.payslip.input.type.view.form.inherit</field>
+        <field name="model">hr.payslip.input.type</field>
+        <field name="inherit_id" ref="hr_payroll.hr_payslip_input_type_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='code']" position="after">
+                <field name="is_otomatic" />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

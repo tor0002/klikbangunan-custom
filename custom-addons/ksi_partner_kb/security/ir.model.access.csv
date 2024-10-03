@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+all_access_member_type,Member Type All Access,model_member_type,,1,1,1,1
+all_access_media_acquisition,Media Acquisition All Access,model_media_acquisition,,1,1,1,1
+all_access_registration_outlet,Registration Outlet All Access,model_registration_outlet,,1,1,1,1

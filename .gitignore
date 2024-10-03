@@ -1,0 +1,4 @@
+*.pyc
+*.po
+*.pot
+enterprise-addons/account_invoice_extract_purchase/__pycache__/__init__.cpython-38.pyc

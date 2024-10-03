@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- coupon.program inherit form view -->
+    <record id="inherit_coupon_program_view_id" model="ir.ui.view">
+        <field name="name">coupon.program.inherit.view.form</field>
+        <field name="model">coupon.program</field>
+        <field name="inherit_id" ref="coupon.coupon_program_view_promo_program_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='rule_date_from']" position="before">
+                <field name="custom_rule_date_from" class="oe_inline"/>
+                <field name="custom_rule_date_to" class="oe_inline"/>
+            </xpath>
+            <xpath expr="//field[@name='rule_date_from']" position="attributes">
+                <attribute name="force_save">1</attribute>
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='rule_date_to']" position="attributes">
+                <attribute name="force_save">1</attribute>
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

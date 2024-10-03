@@ -1,0 +1,116 @@
+<odoo>
+  <data>
+
+    <!-- KSI Report KB: Sales & Margin - form view -->
+    <record id="ksi_report_kb_sale_margin_form" model="ir.ui.view">
+      <field name="name">ksi.report.kb.sale.margin.form</field>
+      <field name="model">ksi.report.kb.sale.margin</field>
+      <field name="arch" type="xml">
+        <form string="Sale &amp; Margin">
+          <!-- <header> -->
+          <!-- <button string="Print" name="action_print" type="object" class="oe_highlight"/> -->
+          <!-- </header> -->
+          <sheet>
+            <group col="4">
+              <div class="oe_title" name="title">
+                <h1>
+                  <label for="name" string="Name"/>
+                  <div>
+                    <field name="name" placeholder="New..."/>
+                  </div>
+                </h1>
+              </div>
+            </group>
+            <group col="4">
+              <field name="date_start" />
+              <field name="date_finish" />
+            </group>
+            <group>
+              <field name="company_id" />
+            </group>
+            <center>
+              <button name="generate_line" string="Generate" type="object" class="btn-primary"/>
+              <!-- a cancel button to close the form -->
+              <button name="action_reset" string="Reset" type="object" class="btn-default"/>
+            </center>
+            <br/>
+            <field name="sale_margin_line_ids">
+              <form >
+                <group col="4">
+                  <field name="name" string="No." readonly="1" invisible="1"/>
+                  <field name="day_time" readonly="1"/>
+                  <field name="trans_num" readonly="1"/>
+                  <field name="qty_num" readonly="1"/>
+                  <field name="gross_value" readonly="1"/>
+                  <field name="sale_value" readonly="1"/>
+                  <field name="tax_value" readonly="1"/>
+                  <field name="net_sale_tax" readonly="1"/>
+                  <field name="cost_value" readonly="1"/>
+                  <field name="profit_value" readonly="1" invisible="1"/>
+                  <field name="gross_margin" readonly="1"/>
+                  <field name="percentage_margin" readonly="1"/>
+                </group>
+              </form>
+              <tree create="0" editable="" delete="0">
+                <field name="name" string="No." invisible="1"/>
+                <field name="day_time" widget="date"/>
+                <field name="trans_num" />
+                <field name="qty_num" />
+                <field name="gross_value" />
+                <field name="sale_value" />
+                <field name="tax_value" />
+                <field name="net_sale_tax" />
+                <field name="cost_value" />
+                <field name="profit_value" invisible="1"/>
+                <field name="gross_margin" />
+                <field name="percentage_margin" />
+              </tree>
+            </field>
+            <footer>
+              <center>
+                <!-- a button to start the download process -->
+                <button name="action_print" string="Print" type="object" class="btn-primary"/>
+              </center>
+            </footer>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- KSI Report KB: Sales & Margin - list view -->
+    <record model="ir.ui.view" id="ksi_report_kb_sale_margin_list">
+      <field name="name">ksi_report_kb_sale_margin_list</field>
+      <field name="model">ksi.report.kb.sale.margin</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="date_start"/>
+          <field name="date_finish"/>
+          <field name="company_id" />
+        </tree>
+      </field>
+    </record>
+
+    <!-- KSI Report KB: Sales & Margin - action window -->
+    <record model="ir.actions.act_window" id="ksi_report_kb_sale_margin_action">
+      <field name="name">Sales &amp; Margin</field>
+      <field name="res_model">ksi.report.kb.sale.margin</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- <record id="action_report_ksi_report_kb_sale_margin" model="ir.actions.report">
+      <field name="name">KSI Sale &amp; Margin</field>
+      <field name="model">ksi.report.kb.sale.margin</field>
+      <field name="report_type">xlsx</field>
+      <field name="report_name">ksi_report_kb.sale_margin</field>
+      <field name="report_file">Sale &amp; Margin</field>
+      <field name="print_report_name">'%s' % object.name</field>
+      <field name="binding_model_id" ref="model_ksi_report_kb_sale_margin"/>
+      <field name="binding_type">report</field>
+    </record> -->
+
+    <!-- KSI Report KB: Sales and Margin - menu item -->
+    <menuitem id="menu_ksi_report_kb_sale_margin" name="Sales &amp; Margin" action="ksi_report_kb_sale_margin_action" parent="menu_point_ksi_rep_kb" sequence="101"/>
+
+  </data>
+</odoo>

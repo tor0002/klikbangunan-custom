@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="stock_inventory_adjustment_name_form_view_inherit_stock" model="ir.ui.view">
+        <field name="name">stock.inventory.adjustment.name.view.form.inherit</field>
+        <field name="model">stock.inventory.adjustment.name</field>
+        <field name="inherit_id" ref="stock.stock_inventory_adjustment_name_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//footer/button[@name='action_apply']" position="attributes">
+                <!-- <a id="add_to_cart" t-attf-class="btn btn-primary btn-lg mt8 js_check_product a-submit #{product.qty_available &lt;= 0 and 'disabled'}" href="#">Add to Cart</a> -->
+                <!-- <button name="action_apply" string="Apply" type="object" class="btn-primary" data-hotkey="q"/> -->
+                <attribute name="attrs"> {'disabled': [('show_info','=',True)]} </attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

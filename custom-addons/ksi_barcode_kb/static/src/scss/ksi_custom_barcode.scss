@@ -1,0 +1,82 @@
+.ksi_custom{
+    * {
+        margin: 0;
+        padding: 0;
+        margin-left: -0.50mm;
+    }
+    .ksi_container{
+        margin: 0mm -4mm 0mm -4mm;
+        padding: 0mm 0mm 0mm 0mm;
+        width: 108mm;
+        height: 15mm;
+        page-break-after: always;
+        page-break-inside: avoid;
+        display: flex;
+
+        // border: 2px solid rgb(255, 1, 77) ;
+
+        .ksi-row{
+            width: 100%;
+            height: 100%;
+            // padding: 0 !important;
+            // margin: 0 !important;
+            // border:3px solid purple;
+            // display: -webkit-box; /* wkhtmltopdf uses this one */
+            display: flex;
+            // -webkit-box-pack: space-evenly; /* wkhtmltopdf uses this one */
+            // justify-content: space-evenly;
+            // -webkit-align-self: center-end;
+            // align-items: center;
+
+            .ksi-item{
+                // border:1px solid salmon;
+                max-height: 14mm;
+                width:32mm;
+                overflow: hidden;
+                // overflow: hidden;
+                // padding: 0mm 3mm 0mm 3mm;
+                margin-left:3.75mm;
+                text-align: center;
+                position: relative;
+                .ksi-barcode{
+                    // display: block;
+
+                }
+                .label_price{
+                    margin:0;
+                    padding: 0;
+                    font-size: 1.5mm;
+                    // float: right;
+                    text-align: right;
+                    position: absolute;
+                    bottom: 1.5mm;
+                    right: 2mm;
+                    // border:1px solid red;
+                    // display: inline-block;
+                }
+                .label_barcode{
+                    margin:0;
+                    padding: 0;
+                    
+                    position: absolute;
+                    bottom: 1.5mm;
+                    left: 1mm;
+                    font-size: 1.5mm;
+
+                    // border:1px solid purple;
+
+                    // display: block;
+                }
+                
+                .label_text{
+                    margin-top:0.7mm;
+                    font-size: 1.5mm;
+                    display: block;
+
+                }
+            }
+        }
+    }
+
+}
+

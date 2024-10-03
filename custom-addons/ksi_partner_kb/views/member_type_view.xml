@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="member_type_view_tree" model="ir.ui.view">
+            <field name="name">member.type.view.tree</field>
+            <field name="model">member.type</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="member_type_action" model="ir.actions.act_window">
+            <field name="name">Member Type</field>
+            <field name="res_model">member.type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="member_type_menu" name="Member Type" sequence="101" parent="base.menu_custom" action="member_type_action"/>
+
+    </data>
+</odoo>

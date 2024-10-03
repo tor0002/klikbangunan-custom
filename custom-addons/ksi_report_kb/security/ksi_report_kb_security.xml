@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="rule_ksi_report_kb_sale_transaction_multi_company" model="ir.rule">
+        <field name="name">KSI Report KB - Sale Transaction</field>
+        <field name="model_id" ref="model_ksi_report_kb_sale_transaction" />
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ksi_hr_absent_wizard_view_form" model="ir.ui.view">
+        <field name="name">hr.absent.wizard.view.form</field>
+        <field name="model">hr.absent.wizard</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="employee_ids" widget="many2many_tags"/>
+                        <field name="date_from" />
+                        <field name="date_to" />
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="generate_absent" string="Generate" type="object" class="btn-primary" data-hotkey="q"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="ksi_action_hr_absent_wizard" model="ir.actions.act_window">
+        <field name="name">Generate Absent</field>
+        <field name="res_model">hr.absent.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- <record id="model_name_action" model="ir.actions.act_window">
+            <field name="name">Action Name</field>
+            <field name="res_model">model_name</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                
+            </field>
+        </record> -->
+
+    <menuitem id="ksi_absent_menu" name="Generate Absent" action="ksi_action_hr_absent_wizard" parent="hr_work_entry_contract_enterprise.menu_hr_payroll_work_entries_root" sequence="99"/>
+
+
+
+</odoo>

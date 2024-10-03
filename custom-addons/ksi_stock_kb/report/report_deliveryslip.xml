@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="ksi_inherit_delivery_slip_pos" inherit_id="stock.report_delivery_document">
+        <xpath expr="//div[@name='div_outgoing_address']" position="replace">
+            <div name="div_outgoing_address">
+                <div t-if="o.move_ids_without_package and o.move_ids_without_package[0].partner_id">
+                    <span>
+                        <strong>Alamat Pengiriman:</strong>
+                    </span>
+                    <!-- <div t-field="o.move_ids_without_package[0].partner_id" t-options='{"widget": "contact", "fields": ["alamat_pengiriman", "name", "phone"], "no_marker": True, "phone_icons": True}'/> -->
+                    <div t-esc="o.move_ids_without_package[0].partner_id.alamat_pengiriman"/>
+                    <span>
+                        <strong>Atas Nama:</strong>
+                    </span>
+                    <div t-esc="o.move_ids_without_package[0].partner_id.name"/>
+                    <span>
+                        <strong>Nomor Telepon:</strong>
+                    </span>
+                    <div t-esc="o.move_ids_without_package[0].partner_id.phone" icon="fa fa-phone"/>
+                </div>
+                <div t-if="o.picking_type_id.code != 'internal' and (not o.move_ids_without_package or not o.move_ids_without_package[0].partner_id) and o.picking_type_id.warehouse_id.partner_id">
+                    <span>
+                        <strong>Warehouse Address:</strong>
+                    </span>
+                    <div t-field="o.picking_type_id.warehouse_id.partner_id" t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}'/>
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//table[@name='stock_move_table']" position="before">
+            <div class="row mt32 mb32" name="supir_nopol">
+                <div class="col-auto" name="div_nama_supir">
+                    <strong>Nama Supir:</strong>
+                    <t t-if="o.nama_supir">
+                        <p t-field="o.nama_supir"/>
+                    </t>
+                    <t t-else="">
+                        <p>-</p>
+                    </t>
+                </div>
+                <div t-if="o.nopol_kendaraan" class="col-auto" name="div_nopol_kendaraan">
+                    <strong>No. Pol. Kendaraan:</strong>
+                    <t t-if="o.nopol_kendaraan">
+                        <p t-field="o.nopol_kendaraan"/>
+                    </t>
+                    <t t-else="">
+                        <p>-</p>
+                    </t>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

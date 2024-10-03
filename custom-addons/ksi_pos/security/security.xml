@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data noupdate="0">
+        <record id="group_show_session_link_button_in_pos" model="res.groups">
+            <field name="name">Show Session Link Button in PoS</field>
+        </record>
+
+        <record id="group_show_session_menu_item_in_pos" model="res.groups">
+            <field name="name">Show Session Menu Item in PoS</field>
+        </record>
+    </data>
+
+</odoo>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="purchase_order_form_ksi_purchase_kb" model="ir.ui.view">
+        <field name="name">purchase.order.inherited.form.ksi.purchase.kb</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="attributes">
+                <attribute name="domain">[('supplier_rank','>',0)]</attribute>
+            </field>
+            <field name="effective_date" position="after">
+                <field name="selisih_hari" attrs="{'invisible':[('effective_date', '=', False)]}"/>
+            </field>
+            <xpath expr="//form/sheet/group/group/field[@name='partner_id']" position="attributes">
+                <attribute name="options">{'no_create': True}</attribute>
+            </xpath>
+            <xpath expr="//form/sheet/notebook/page/field/tree/field[@name='product_id']" position="attributes">
+                <attribute name="options">{'no_create': True}</attribute>
+            </xpath>
+            <xpath expr="//form/sheet/notebook/page/group/group/field[@name='user_id']" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']//field[@name='price_unit']" position="after">
+                <field name="custom_weight" />
+                <field name="total_weight" />
+                <field name="first_disc" />
+                <field name="second_disc" />
+                <field name="third_disc" />
+                <field name="fourth_disc" optional="hide"/>
+            </xpath>
+            <!-- <field name="amount_untaxed" position="after">
+                <field name="amount_after_disc" invisible="1"/>
+            </field> -->
+            <notebook position="inside">
+                <page name="custom_notes" string="Custom Notes">
+                    <group>
+                        <field name="first_note" />
+                        <field name="second_note" />
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+    <record id="purchase_order_tree_ksi_purchase_kb" model="ir.ui.view">
+        <field name="name">purchase.order.inherited.tree.ksi.purchase.kb</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="date_planned" position="after">
+                <field name="effective_date" />
+                <field name="selisih_hari" />
+            </field>
+        </field>
+    </record>
+</odoo>

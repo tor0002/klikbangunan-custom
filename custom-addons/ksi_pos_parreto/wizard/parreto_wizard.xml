@@ -1,0 +1,99 @@
+<odoo>
+
+
+    <!-- Membuat View Form Wizard -->
+
+    <record id="ksi_parreto_wizard_view_form" model="ir.ui.view">
+        <field name="name">parreto.wizard.form</field>
+        <field name="model">parreto.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Parreto Wizard Form">
+                <group>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="company_id"/>
+                </group>
+                <footer>
+                    <button name="data_pos_order_line" type="object" string="Generate" class="oe_highlight"/>
+                    or
+                    <button string="Batal" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Membuat Action/Event Wizard -->
+
+    <!-- <record id="ksi_parreto_wizard_action" model="ir.actions.act_window">
+        <field name="name">Parreto Wizard</field>
+        <field name="res_model">parreto.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_pos_order_line" />
+        <field name="binding_view_types">form</field>
+    </record> -->
+
+    <!-- <record id="ksi_parreto_wizard_view_tree" model="ir.ui.view">
+        <field name="name">parreto.wizard.view.tree</field>
+        <field name="model">pos.order.line</field>
+        <field name="arch" type="xml">
+            <tree string="POS Order Lines" editable="bottom">
+                <field name="name"/>
+                <field name="product_id"/>
+                <field name="price_subtotal_incl"/>
+                <field name="percentage" sum="Sum of pecentage"/>
+                <field name="total_percentage"/>
+                <field name="akumulasi_percentage"/>
+                <field name="evaluation"/>
+                Tambahkan field lainnya yang ingin ditampilkan
+            </tree>
+        </field>
+    </record> -->
+
+    <record id="ksi_pos_order_line_wizard_view_tree" model="ir.ui.view">
+        <field name="name">pos.order.line.wizard.view.tree</field>
+        <field name="model">pos.order.line.wizard</field>
+        <field name="arch" type="xml">
+            <tree string="POS Order Lines" >
+                <header>
+                    <button name="action_change_all" string="Change All" type="object" />
+                </header>
+                <field name="name"/>
+                <!-- <field name="nama_product"/> -->
+                <field name="product_id"/>
+                <field name="subtotal" sum="Sum of subtotal"/>
+                <field name="percentage"/>
+                <field name="total_percentage"/>
+                <field name="akumulasi_percentage"/>
+                <field name="evaluation"/>
+                <!-- Tambahkan field lainnya yang ingin ditampilkan -->
+            </tree>
+        </field>
+    </record>
+
+    <!-- <record id="ksi_parreto_wizard_action_tree" model="ir.actions.act_window">
+        <field name="name">POS Order Lines</field>
+        <field name="res_model">pos.order.line</field>
+        <field name="view_mode">tree</field>
+    </record> -->
+
+    <record id="ksi_pos_order_line_wizard_action_tree" model="ir.actions.act_window">
+        <field name="name">POS Order Lines Wizard</field>
+        <field name="res_model">pos.order.line.wizard</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <!-- Menghubungkan Action/Event Wizard dengan Action/Event Tree -->
+    <record id="ksi_parreto_wizard_action" model="ir.actions.act_window">
+        <field name="name">Parreto Wizard</field>
+        <field name="res_model">parreto.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_pos_order_line_wizard"/>
+        <field name="binding_view_types">form</field>
+        <!-- <field name="views" eval="[(6, 0, [ref('ksi_pos_order_line_wizard_view_tree')])]"/> -->
+        <field name="views" eval="[(4, ref('ksi_pos_order_line_wizard_view_tree'))]"/>
+        <!-- <field name="views" eval="[(0, 0, {'view_id': ref('ksi_pos_order_line_wizard_view_tree'), 'view_mode': 'tree'})]"/> -->
+    </record>
+
+</odoo>

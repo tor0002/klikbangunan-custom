@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_purchase_approval_user,ab_dynamic_purchase_approval.purchase.approval,model_purchase_approval,base.group_user,1,1,1,1
+access_refused_order_user,ab_dynamic_purchase_approval.refused.order,model_refused_order,base.group_user,1,1,1,1

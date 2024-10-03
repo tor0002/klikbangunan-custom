@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="grid_report_purchaseorder_template_inherit" inherit_id="purchase.report_purchasequotation_document">
+        <xpath expr="//div[hasclass('page')]" position="inside">
+            <hr/>
+            <h5 style="font-size:0.75em; font-weight:bold;">First Note:</h5>
+            <t t-if="o.first_note==''">
+                <p style="font-size:0.75em; font-style: italic;">-</p>
+            </t>
+            <t t-else="">
+                <p style="font-size:0.75em; font-style: italic;" t-field="o.first_note"/>
+            </t>
+            <hr/>
+            <h5 style="font-size:0.75em; font-weight:bold;">Second Note:</h5>
+            <t t-if="o.second_note==''">
+                <p style="font-size:0.75em; font-style: italic;">-</p>
+            </t>
+            <t t-else="">
+                <p style="font-size:0.75em; font-style: italic;" t-field="o.second_note"/>
+            </t>
+            <hr/>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem 
+        id="ksi_custom_report_pos_menu"
+        name="Product Margin Percentage" 
+        action="action_ksi_custom_pos_report_detail" 
+        parent="point_of_sale.menu_point_rep" 
+        sequence="10"
+    />
+</odoo>

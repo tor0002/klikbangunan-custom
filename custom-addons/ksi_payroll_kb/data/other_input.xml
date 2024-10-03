@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <record id="ksi_kb_input_rapel" model="hr.payslip.input.type">
+            <field name="name">Rapel</field>
+            <field name="code">RAPEL</field>
+            <field name="country_id" eval="False"/>
+            <field name="struct_ids" eval="[
+            (4, ref('ksi_payroll_kb.ksi_payroll_kb_salary_structure_mingguan'))
+            ]"/>
+        </record>
+
+        <record id="ksi_kb_input_bpjs_kesehatan" model="hr.payslip.input.type">
+            <field name="name">BPJS Kesehatan</field>
+            <field name="code">BPJS_KES</field>
+            <field name="country_id" eval="False"/>
+            <field name="struct_ids" eval="[
+            (4, ref('ksi_payroll_kb.ksi_payroll_kb_salary_structure_mingguan'))
+            ]"/>
+        </record>
+        <record id="ksi_kb_input_selisih_so" model="hr.payslip.input.type">
+            <field name="name">Selisih SO</field>
+            <field name="code">SELISIH_SO</field>
+            <field name="country_id" eval="False"/>
+            <field name="struct_ids" eval="[
+            (4, ref('ksi_payroll_kb.ksi_payroll_kb_salary_structure_mingguan')),
+            (4, ref('ksi_payroll_kb.ksi_payroll_kb_salary_structure_bulanan'))
+            ]"/>
+        </record>
+        <record id="ksi_kb_input_selisih_kasir" model="hr.payslip.input.type">
+            <field name="name">Selisih Kasir</field>
+            <field name="code">SELISIH_KASIR</field>
+            <field name="country_id" eval="False"/>
+            <field name="struct_ids" eval="[
+            (4, ref('ksi_payroll_kb.ksi_payroll_kb_salary_structure_mingguan')),
+            (4, ref('ksi_payroll_kb.ksi_payroll_kb_salary_structure_bulanan'))
+            ]"/>
+        </record>
+        <record id="ksi_kb_input_sewa_laptop" model="hr.payslip.input.type">
+            <field name="name">Sewa Laptop</field>
+            <field name="code">SEWA_LAPTOP</field>
+            <field name="country_id" eval="False"/>
+            <field name="struct_ids" eval="[
+            (4, ref('ksi_payroll_kb.ksi_payroll_kb_salary_structure_bulanan'))
+            ]"/>
+        </record>
+        <record id="ksi_kb_input_overtime" model="hr.payslip.input.type">
+            <field name="name">Overtime</field>
+            <field name="code">OVERTIME</field>
+            <field name="country_id" eval="False"/>
+            <field name="struct_ids" eval="[
+            (4, ref('ksi_payroll_kb.ksi_payroll_kb_salary_structure_bulanan'))
+            ]"/>
+        </record>
+        <record id="ksi_kb_input_tunjangan_lain" model="hr.payslip.input.type">
+            <field name="name">Tunjangan Lain-Lain</field>
+            <field name="code">TUN_LAIN</field>
+            <field name="country_id" eval="False"/>
+            <field name="struct_ids" eval="[
+            (4, ref('ksi_payroll_kb.ksi_payroll_kb_salary_structure_bulanan'))
+            ]"/>
+        </record>
+        <record id="ksi_kb_input_rapel" model="hr.payslip.input.type">
+            <field name="name">Rapel</field>
+            <field name="code">RAPEL</field>
+            <field name="country_id" eval="False"/>
+            <field name="struct_ids" eval="[
+            (4, ref('ksi_payroll_kb.ksi_payroll_kb_salary_structure_bulanan'))
+            ]"/>
+        </record>
+        <record id="ksi_kb_input_potongan_pinjaman" model="hr.payslip.input.type">
+            <field name="name">Potongan Pinjaman</field>
+            <field name="code">POT_PINJAMAN</field>
+            <field name="country_id" eval="False"/>
+            <field name="struct_ids" eval="[
+            (4, ref('ksi_payroll_kb.ksi_payroll_kb_salary_structure_bulanan'))
+            ]"/>
+        </record>
+
+    </data>
+
+
+</odoo>

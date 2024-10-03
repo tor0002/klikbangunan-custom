@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="stock_quant_tree_inventory_editable_view_ksi_stock_kb" model="ir.ui.view">
+        <field name="name">stock.quant.inventory.inherited.tree.editable.ksi.stock.kb</field>
+        <field name="model">stock.quant</field>
+        <field name="groups_id" eval="[(4,ref('ksi_stock_kb.group_hide_field_on_hand_quantity'))]"/>
+        <field name="inherit_id" ref="stock.view_stock_quant_tree_inventory_editable"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='quantity']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="stock_quant_tree_inventory_view_inherit_ksi_stock_kb" model="ir.ui.view">
+        <field name="name">stock.quant.inventory.inherited.tree.ksi.stock.kb</field>
+        <field name="model">stock.quant</field>
+        <field name="inherit_id" ref="stock.view_stock_quant_tree_inventory_editable"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="create">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='owner_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

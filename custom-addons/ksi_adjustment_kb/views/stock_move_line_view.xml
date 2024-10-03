@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+
+        <record id="stock_move_line_search_view_inherit_ksi_adjustment_kb" model="ir.ui.view">
+            <field name="name">stock.move.line.search.inherit.ksi.adjustment.kb</field>
+            <field name="model">stock.move.line</field>
+            <field eval="10" name="priority"/>
+            <field name="arch" type="xml">
+                <search string="Stock Move Lines (inherited by ksi_adjustment_kb)">
+                    <field name="reference"/>
+                    <field name="is_inventory" groups="base.group_user"/>
+                    <group expand='0' string='Filters'>
+                        <filter name="filter_is_inventory" string="Is Inventory?" domain="[('is_inventory', '=', True)]"/>
+                    </group>
+                    <group expand='0' string='Group by...'>
+                        <filter string='Reference' name="group_by_reference" context="{'group_by': 'reference'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="stock_view_move_line_tree_inherit_ksi_adjustment_kb_action" model="ir.actions.act_window">
+            <field name="name">View References</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">stock.move.line</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('is_inventory', '=', True)]</field>
+            <field name="context">{'group_by': 'reference'}</field>
+            <!-- <field name="context">{'search_default_filter_is_inventory':1, 'search_default_group_by_reference': 1}</field> -->
+        </record>
+
+        <menuitem id="menu_item_stock_quant_ksi_adjustment_kb" name="&gt;&gt;&gt; View References &lt;&lt;&lt;" parent="stock.menu_stock_warehouse_mgmt" action="stock_view_move_line_tree_inherit_ksi_adjustment_kb_action" sequence="33"/>
+
+    </data>
+
+</odoo>

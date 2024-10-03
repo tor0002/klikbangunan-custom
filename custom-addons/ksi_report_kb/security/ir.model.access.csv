@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ksi_report_kb_sale_margin_user,ksi_report_kb.ksi.report.kb.sale.margin,model_ksi_report_kb_sale_margin,base.group_user,1,1,1,1
+access_ksi_report_kb_sale_margin_line_user,ksi_report_kb.ksi.report.kb.sale.margin.line,model_ksi_report_kb_sale_margin_line,base.group_user,1,1,1,1
+access_target_vs_sales_wizard_user,ksi_report_kb.target.vs.sales.wizard,model_target_vs_sales_wizard,base.group_user,1,1,1,1
+access_ksi_report_kb_sale_transaction_user,ksi_report_kb.ksi.report.kb.sale.transaction,model_ksi_report_kb_sale_transaction,base.group_user,1,1,1,1
+access_ksi_report_kb_sale_transaction_wizard_user,ksi_report_kb.ksi.report.kb.sale.transaction.wizard,model_ksi_report_kb_sale_transaction_wizard,base.group_user,1,1,1,1

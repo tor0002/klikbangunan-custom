@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.actions.server" id="ksi_pricelist_action_update_vendor_prices">
+        <field name="name">Update Vendor Prices</field>
+        <field name="model_id" ref="ksi_pricelist.model_product_supplierinfo"/>
+        <field name="groups_id" eval="[(4, ref('ksi_pricelist.group_ksi_pricelist_admin'))]"/>
+        <field name="binding_model_id" ref="ksi_pricelist.model_product_supplierinfo" />
+        <field name="state">code</field>
+        <field name="binding_view_types">list</field>
+        <field name="code">
+            if records:
+                action = records.change_vendor_prices()
+        </field>
+    </record>
+    <record model="ir.actions.server" id="ksi_pricelist_action_update_sales_prices">
+        <field name="name">Update Sales Prices</field>
+        <field name="model_id" ref="ksi_pricelist.model_product_supplierinfo"/>
+        <field name="groups_id" eval="[(4, ref('ksi_pricelist.group_ksi_pricelist_admin'))]"/>
+        <field name="binding_model_id" ref="ksi_pricelist.model_product_supplierinfo" />
+        <field name="state">code</field>
+        <field name="binding_view_types">list</field>
+        <field name="code">
+            if records:
+                action = records.change_sales_prices()
+        </field>
+    </record>
+    <record id="ksi_pricelist_product_supplierinfo_tree_view_inherit_product" model="ir.ui.view">
+        <field name="name">ksi.pricelist.product.supplierinfo.view.list.inherit</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="inherit_id" ref="product.product_supplierinfo_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="price" position='after'>
+                <field name="new_cost_price" string='New Vendor Price' groups='ksi_pricelist.group_ksi_pricelist_admin'/>
+                <field name="current_sale_price" />
+                <field name="new_sale_price" groups='ksi_pricelist.group_ksi_pricelist_admin'/>
+                <button string="Update Vendor Price" name="change_vendor_prices" type="object" class="oe_highlight" groups='ksi_pricelist.group_ksi_pricelist_admin'/>
+                <button string="Update Sales Price" name="change_sales_prices" type="object" class="oe_highlight" groups='ksi_pricelist.group_ksi_pricelist_admin'/>
+            </field>
+
+            <xpath expr="//field[@name='price']" position="attributes">
+                <attribute name="readonly" value="1">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

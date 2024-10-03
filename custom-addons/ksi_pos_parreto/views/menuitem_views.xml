@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- <menuitem id="ksi_custom_report_parreto" name="Parreto" parent="ksi_report_kb.menu_point_ksi_rep_kb" action="action_inherit_report_pos_order"/> -->
+
+    <menuitem id="ksi_menu_item_parreto_wizard" name="Parreto Wizard" parent="ksi_report_kb.menu_point_ksi_rep_kb" action="ksi_parreto_wizard_action"/>
+
+    <!-- <menuitem id="ksi_custom_report_parreto" name="Parreto" parent="ksi_report_kb.menu_point_ksi_rep_kb" action="point_of_sale.action_pos_order_line"/> -->
+
+    <!-- <menuitem id="ksi_custom_report_parreto_test" name="Parreto Test" parent="ksi_report_kb.menu_point_ksi_rep_kb" action="action_inherit_pos_order_line_test" sequence="4"/> -->
+
+
+</odoo>

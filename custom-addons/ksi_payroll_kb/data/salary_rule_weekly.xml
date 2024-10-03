@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <!-- ! weekly structure -->
+        <record id="ksi_payroll_kb_gaji_bulanan_weekly" model="hr.salary.rule">
+            <field name="name">Gaji Bulanan</field>
+            <field name="category_id" ref="ksi_payroll_kb.ksi_kb_rule_category_information"/>
+            <field name="code">GB</field>
+            <field name="struct_id" ref="ksi_payroll_kb.ksi_payroll_kb_salary_structure_mingguan"/>
+            <field name="sequence">20</field>
+            <field name="appears_on_payslip">True</field>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.wage</field>
+        </record>
+
+        <!-- <record id="ksi_payroll_kb_gaji_mingguan_weekly" model="hr.salary.rule">
+            <field name="name">Gaji Mingguan</field>
+            <field name="category_id" ref="hr_payroll.BASIC"/>
+            <field name="code">GM</field>
+            <field name="struct_id" ref="ksi_payroll_kb.ksi_payroll_kb_salary_structure_mingguan"/>
+            <field name="sequence">20</field>
+            <field name="appears_on_payslip">True</field>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = round(contract.gaji_harian * 13)</field>
+        </record> -->
+
+        <record id="ksi_payroll_kb_gaji_harian_weekly" model="hr.salary.rule">
+            <field name="name">Gaji Harian</field>
+            <field name="category_id" ref="ksi_payroll_kb.ksi_kb_rule_category_information"/>
+            <field name="code">GH</field>
+            <field name="struct_id" ref="ksi_payroll_kb.ksi_payroll_kb_salary_structure_mingguan"/>
+            <field name="sequence">21</field>
+            <field name="appears_on_payslip">True</field>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.gaji_harian</field>
+        </record>
+
+        <record id="ksi_payroll_kb_total_kehadiran_weekly" model="hr.salary.rule">
+            <field name="name">Total Kehadiran</field>
+            <field name="category_id" ref="hr_payroll.BASIC"/>
+            <field name="code">TOT_HADIR</field>
+            <field name="struct_id" ref="ksi_payroll_kb.ksi_payroll_kb_salary_structure_mingguan"/>
+            <field name="sequence">22</field>
+            <field name="appears_on_payslip">True</field>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = round(contract.gaji_harian * 13)</field>
+        </record>
+
+        <record id="ksi_payroll_kb_rapel_weekly" model="hr.salary.rule">
+            <field name="name">Rapel</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="code">RAPEL</field>
+            <field name="struct_id" ref="ksi_payroll_kb.ksi_payroll_kb_salary_structure_mingguan"/>
+            <field name="sequence">23</field>
+            <field name="appears_on_payslip">True</field>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = inputs.RAPEL and contract.check_minggu(payslip) == 2 </field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = inputs.RAPEL.amount</field>
+        </record>
+
+        <record id="ksi_payroll_kb_lembur_weekly" model="hr.salary.rule">
+            <field name="name">Lembur</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="code">LEMBUR</field>
+            <field name="struct_id" ref="ksi_payroll_kb.ksi_payroll_kb_salary_structure_mingguan"/>
+            <field name="sequence">24</field>
+            <field name="appears_on_payslip">True</field>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.check_minggu(payslip) == 2</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.calc_lembur(payslip)</field>
+        </record>
+
+        <record id="ksi_payroll_kb_longshift_weekly" model="hr.salary.rule">
+            <field name="name">Longshift</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="code">LONGSHIFT</field>
+            <field name="struct_id" ref="ksi_payroll_kb.ksi_payroll_kb_salary_structure_mingguan"/>
+            <field name="sequence">25</field>
+            <field name="appears_on_payslip">True</field>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.check_minggu(payslip) == 2</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.calc_long_shift(payslip)</field>
+        </record>
+
+        <record id="ksi_payroll_kb_izin_weekly" model="hr.salary.rule">
+            <field name="name">Izin</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="code">IZIN</field>
+            <field name="struct_id" ref="ksi_payroll_kb.ksi_payroll_kb_salary_structure_mingguan"/>
+            <field name="sequence">14</field>
+            <field name="appears_on_payslip">True</field>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.check_minggu(payslip) == 2</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.calc_work_entries() </field>
+        </record>
+
+        <record id="ksi_payroll_kb_potongan_ketidakhadiran_weekly" model="hr.salary.rule">
+            <field name="name">Potongan Ketidakhadiran</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="code">POT_TIDAK_HADIR</field>
+            <field name="struct_id" ref="ksi_payroll_kb.ksi_payroll_kb_salary_structure_mingguan"/>
+            <field name="sequence">26</field>
+            <field name="appears_on_payslip">True</field>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.check_minggu(payslip) == 2 and worked_days.ABSENT</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.calc_work_entries()</field>
+        </record>
+
+        <record id="ksi_payroll_kb_potongan_bpjs_kesehatan_weekly" model="hr.salary.rule">
+            <field name="name">BPJS Kesehatan</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="code">BPJS_KES</field>
+            <field name="struct_id" ref="ksi_payroll_kb.ksi_payroll_kb_salary_structure_mingguan"/>
+            <field name="sequence">27</field>
+            <field name="appears_on_payslip">True</field>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.check_minggu(payslip) == 2 and inputs.BPJS_KES</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = -(inputs.BPJS_KES.amount)</field>
+        </record>
+
+        <record id="ksi_payroll_kb_potongan_selisih_so_weekly" model="hr.salary.rule">
+            <field name="name">Selisih SO</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="code">SELISIH_SO</field>
+            <field name="struct_id" ref="ksi_payroll_kb.ksi_payroll_kb_salary_structure_mingguan"/>
+            <field name="sequence">28</field>
+            <field name="appears_on_payslip">True</field>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.check_minggu(payslip) == 2 and inputs.SELISIH_SO</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = -(inputs.SELISIH_SO.amount)</field>
+        </record>
+
+        <record id="ksi_payroll_kb_potongan_selisih_kasir_weekly" model="hr.salary.rule">
+            <field name="name">Selisih Kasir</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="code">SELISIH_KASIR</field>
+            <field name="struct_id" ref="ksi_payroll_kb.ksi_payroll_kb_salary_structure_mingguan"/>
+            <field name="sequence">29</field>
+            <field name="appears_on_payslip">True</field>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.check_minggu(payslip) == 2 and inputs.SELISIH_KASIR</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = -(inputs.SELISIH_KASIR.amount)</field>
+        </record>
+
+        <record id="ksi_payroll_kb_take_home_pay_weekly" model="hr.salary.rule">
+            <field name="name">Take Home Pay</field>
+            <field name="category_id" ref="hr_payroll.BASIC"/>
+            <field name="code">THP</field>
+            <field name="struct_id" ref="ksi_payroll_kb.ksi_payroll_kb_salary_structure_mingguan"/>
+            <field name="sequence">30</field>
+            <field name="appears_on_payslip">True</field>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = (categories.BASIC + categories.ALW + categories.DED) if contract.check_minggu(payslip) == 2 else categories.BASIC </field>
+        </record>
+
+
+    </data>
+
+
+</odoo>

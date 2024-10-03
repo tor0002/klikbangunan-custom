@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+
+        <record model="ir.actions.server" id="ksi_action_force_delete">
+            <field name="name">Force Delete</field>
+            <field name="model_id" ref="model_hr_leave"/>
+            <field name="binding_model_id" ref="model_hr_leave" />
+            <field name="state">code</field>
+            <field name="code">
+            if records:
+                records.action_refuse()
+                records.action_draft()
+                records.unlink()
+
+            </field>
+        </record>
+
+    </data>
+
+
+</odoo>

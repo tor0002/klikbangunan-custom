@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="CustomButton" owl="1">
+        <div class="control-button">
+            <i class="fa fa-superpowers" role="img" aria-label="Custom Button" title="Custom Button"/>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+
+        <record id="ksi_kb_job_driver" model="hr.job">
+            <field name="name">Driver</field>
+        </record>
+        <record id="ksi_kb_job_helper" model="hr.job">
+            <field name="name">Helper</field>
+        </record>
+
+    </data>
+
+
+</odoo>

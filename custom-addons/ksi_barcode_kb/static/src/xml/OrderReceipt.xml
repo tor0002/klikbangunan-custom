@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <!-- ! Nembak template untuk print struk POS -->
+    <!-- <templates id="template" xml:space="preserve">
+        <t t-name="custom_order_receipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
+            <xpath expr="//div[hasclass('pos-receipt')]" position="inside">
+                <div> Hello</div>
+            </xpath>
+        </t>
+    </templates> -->
+
+
+</odoo>

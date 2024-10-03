@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_partner_view_form_ksi_purchase_kb" model="ir.ui.view">
+        <field name="name">res.partner.inherited.view.form.ksi.purchase.kb</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page name="custom_information" string="Custom Information">
+                    <group>
+                        <field name="alamat_npwp" />
+                    </group>
+                    <group>
+                        <group>
+                            <field name="pic_1" />
+                            <field name="pic_2" />
+                            <field name="nomor_rekening" />
+                            <field name="tipe_vendor" />
+                        </group>
+                        <group>
+                            <field name="kontak_pic_1" />
+                            <field name="kontak_pic_2" />
+                            <field name="metode_pembayaran" />
+                            <field name="principle" />
+                        </group>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>

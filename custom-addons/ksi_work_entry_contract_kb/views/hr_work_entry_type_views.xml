@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_work_entry_type_view_form_inherit_hr_work_entry" model="ir.ui.view">
+        <field name="name">hr.work.entry.type.view.form.inherit</field>
+        <field name="model">hr.work.entry.type</field>
+        <field name="inherit_id" ref="hr_work_entry.hr_work_entry_type_view_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//group[@name='identification']//field[@name='color']" position="after">
+                <field name="is_attendance" />
+                <field name="is_absence" />
+
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

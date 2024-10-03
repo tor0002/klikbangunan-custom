@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="ksi_inherit_purchase_order_form_inherit_purchase" model="ir.ui.view">
+        <field name="name">purchase.order.view.form.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']//field[@name='price_subtotal']" position="after">
+                <button string="ORDER RULE" name="ksi_action_view_orderpoint" type="object" icon="fa-bars" class="oe_highlight" optional='show'/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

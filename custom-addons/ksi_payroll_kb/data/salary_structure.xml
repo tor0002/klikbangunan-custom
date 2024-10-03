@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+
+        <!-- <record id="ksi_payroll_kb_test2" model="hr.payroll.structure">
+            <field name="name">Office Salary Structure</field>
+            <field name="type_id" ref="hr_contract.structure_type_employee"/>
+            <field name="rule_ids" eval="[(6, 0, [
+            ref('ksi_payroll_kb_test1')
+            
+        ])]"/>
+        </record> -->
+
+        <record id="ksi_payroll_kb_salary_structure_bulanan" model="hr.payroll.structure">
+            <field name="name">Monthly Structure</field>
+            <field name="type_id" ref="ksi_payroll_kb.ksi_payroll_structure_types_monthly"/>
+            <!-- <field name="report_id" ref="hr_contract.structure_type_employee"/> -->
+
+            <!-- <field name="rule_ids" eval="[(6, 0, [
+            ref('ksi_payroll_kb_gaji_pokok'),
+            ref('ksi_payroll_kb_uang_makan'),
+            ref('ksi_payroll_kb_tunjangan_kehadiran'),
+            ref('ksi_payroll_kb_gaji_gross'),
+            ref('ksi_payroll_kb_gaji_per_hari'),
+            ref('ksi_payroll_kb_tunjangan_jabatan'),
+            ref('ksi_payroll_kb_komunikasi'),
+            ref('ksi_payroll_kb_long_shift'),
+            ref('ksi_payroll_kb_sewa_laptop'),
+            ref('ksi_payroll_kb_over_time'),
+            ref('ksi_payroll_kb_tunjangan_lain'),
+            ref('ksi_payroll_kb_rapel'),
+            ref('ksi_payroll_kb_penambahan_hari_kerja'),
+            ref('ksi_payroll_kb_penambahan_potongan_tidak_hadir'),
+            ref('ksi_payroll_kb_penambahan_potongan_pinjaman'),
+            ref('ksi_payroll_kb_selisih_kasir'),
+            ref('ksi_payroll_kb_selisih_so'),
+            ref('ksi_payroll_kb_pph21'),
+            ref('ksi_payroll_kb_bpjs_kesehatan'),
+            
+        ])]"/> -->
+        </record>
+
+        <record id="ksi_payroll_kb_salary_structure_mingguan" model="hr.payroll.structure">
+            <field name="name">Weekly Structure</field>
+            <field name="type_id" ref="ksi_payroll_structure_types_weekly"/>
+
+            <!-- <field name="rule_ids" eval="[(6, 0, [
+            ref('ksi_payroll_kb_gaji_bulanan_weekly'),
+            ref('ksi_payroll_kb_gaji_harian_weekly'),
+            ref('ksi_payroll_kb_total_kehadiran_weekly'),
+            ref('ksi_payroll_kb_rapel_weekly'),
+            ref('ksi_payroll_kb_lembur_weekly'),
+            ref('ksi_payroll_kb_longshift_weekly'),
+            ref('ksi_payroll_kb_potongan_ketidakhadiran_weekly'),
+            ref('ksi_payroll_kb_potongan_bpjs_kesehatan_weekly'),
+            ref('ksi_payroll_kb_potongan_selisih_so_weekly'),
+            ref('ksi_payroll_kb_potongan_selisih_kasir_weekly'),
+            ref('ksi_payroll_kb_take_home_pay_weekly')
+            
+        ])]"/> -->
+        </record>
+
+    </data>
+
+
+</odoo>

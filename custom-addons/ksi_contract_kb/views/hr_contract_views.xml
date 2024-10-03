@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="ksi_contract_kb_inherit_hr_contract_view_form_test" model="ir.ui.view">
+        <field name="name">hr.contract.view.form.inherit</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+        <field name="arch" type="xml">
+            <!-- <xpath expr="//page[@name='information']//group[@name='salary']" position="after">
+                <field name="tunjangan" />
+                <field name="potongan" />
+            </xpath> -->
+            <!-- <xpath expr="//page[@name='information']//group[@name='salary']//div[@name='wage']" position="after">
+                <label for="tunjangan"/>
+                <div class="o_row" name="tunjangan">
+                    <field name="tunjangan" nolabel="1"/>
+                    <span>/ month</span>
+                </div>
+                <label for="potongan"/>
+                <div class="o_row" name="potongan">
+                    <field name="potongan" nolabel="1" />
+                    <span>/ month</span>
+                </div>
+            </xpath> -->
+            <xpath expr="//page[@name='information']//group[@name='salary']//div[@name='wage']" position="after">
+                <label for="gaji_harian"/>
+                <div class="o_row" name="gaji_harian">
+                    <field name="gaji_harian" nolabel="1"/>
+                    <span>/ day</span>
+                </div>
+            </xpath>
+            <xpath expr="//page[@name='information']//group[1]" position="after">
+            <group attrs="{'invisible': [('structure_type_id', '=', 8)]}">
+            <group string="Penambahan">
+                <label for="tunjangan_jabatan"/>
+                <div class="o_row" name="tunjangan_jabatan">
+                    <field name="tunjangan_jabatan" nolabel="1"/>
+                    <span>/ month</span>
+                </div>
+                <label for="komunikasi"/>
+                <div class="o_row" name="komunikasi">
+                    <field name="komunikasi" nolabel="1"/>
+                    <span>/ month</span>
+                </div>
+                
+            </group>
+            <group string="Potongan">
+                <label for="pph21"/>
+                <div class="o_row" name="pph21">
+                    <field name="pph21" nolabel="1"/>
+                    <span>/ month</span>
+                </div>
+                <label for="bpjs_kes"/>
+                <div class="o_row" name="bpjs_kes">
+                    <field name="bpjs_kes" nolabel="1"/>
+                    <span>/ month</span>
+                </div>
+            </group>
+            </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

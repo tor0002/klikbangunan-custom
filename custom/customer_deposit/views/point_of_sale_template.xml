@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>    
+    
+    <template id="assets_deposit_inherit" name="point_of_sale_deposit_assets_inherit" inherit_id="point_of_sale.assets">
+        <xpath expr="//script[last()]" position="after">
+            <script type="text/javascript" src="/customer_deposit/static/src/js/deposit.js"/>            
+        </xpath>
+    </template>
+    
+</odoo>    

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="return_reason_view_tree" model="ir.ui.view">
+        <field name="name">return.reason.tree</field>
+        <field name="model">return.reason</field>
+        <field name="arch" type="xml">
+            <tree string="Return Reason" editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="return_reason_action" model="ir.actions.act_window">
+        <field name="name">Return Reason</field>
+        <field name="res_model">return.reason</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            Create a Return Reason
+            </p>
+            <p>
+            Use Return Reasons to report on why opportunities are returned (e.g."Undercut by competitors").
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_return_reason" name="Return Reasons" parent="stock.menu_warehouse_config" action="return_reason_action" sequence="9"/>
+</odoo>
