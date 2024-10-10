@@ -73,8 +73,8 @@ odoo.define('sh_pos_min_max_price.pos', function (require) {
             } else {
 
                 Gui.showPopup('ErrorPopup', {
-                    title: 'Product Price Alert',
-                    body: 'Sale Price Should be Between ' + this.product.pro_min_sale_price + '-' + + this.product.pro_max_sale_price,
+                    title: 'Tolong Cek Kembali Harganya',
+                    body: 'Open Price harus diantara ' + this.product.pro_min_sale_price + ' - ' + + this.product.pro_max_sale_price,
                 });
                 _super_orderline.set_unit_price.call(this, price)
             }

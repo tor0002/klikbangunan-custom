@@ -3,9 +3,9 @@
 # from odoo import models, fields, api
 
 
-# class customer_deposit_realtime(models.Model):
-#     _name = 'customer_deposit_realtime.customer_deposit_realtime'
-#     _description = 'customer_deposit_realtime.customer_deposit_realtime'
+# class custom_calculated_line(models.Model):
+#     _name = 'custom_calculated_line.custom_calculated_line'
+#     _description = 'custom_calculated_line.custom_calculated_line'
 
 #     name = fields.Char()
 #     value = fields.Integer()
