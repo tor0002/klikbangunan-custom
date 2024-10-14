@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_custom_hide_ds_before_validate_custom_hide_ds_before_validate,custom_hide_ds_before_validate.custom_hide_ds_before_validate,model_custom_hide_ds_before_validate_custom_hide_ds_before_validate,base.group_user,1,1,1,1

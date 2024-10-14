@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_custom_popup_attach_custom_popup_attach,custom_popup_attach.custom_popup_attach,model_custom_popup_attach_custom_popup_attach,base.group_user,1,1,1,1
