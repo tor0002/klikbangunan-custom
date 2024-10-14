@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_attachment_before_validate_attachment_before_validate,attachment_before_validate.attachment_before_validate,model_attachment_before_validate_attachment_before_validate,base.group_user,1,1,1,1

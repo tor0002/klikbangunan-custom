@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="custom_warning_batch.list">
+      <field name="name">custom_warning_batch list</field>
+      <field name="model">custom_warning_batch.custom_warning_batch</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="custom_warning_batch.action_window">
+      <field name="name">custom_warning_batch window</field>
+      <field name="res_model">custom_warning_batch.custom_warning_batch</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="custom_warning_batch.action_server">
+      <field name="name">custom_warning_batch server</field>
+      <field name="model_id" ref="model_custom_warning_batch_custom_warning_batch"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="custom_warning_batch" id="custom_warning_batch.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="custom_warning_batch.menu_1" parent="custom_warning_batch.menu_root"/>
+    <menuitem name="Menu 2" id="custom_warning_batch.menu_2" parent="custom_warning_batch.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="custom_warning_batch.menu_1_list" parent="custom_warning_batch.menu_1"
+              action="custom_warning_batch.action_window"/>
+    <menuitem name="Server to list" id="custom_warning_batch" parent="custom_warning_batch.menu_2"
+              action="custom_warning_batch.action_server"/>
+-->
+  </data>
+</odoo>
