@@ -8,7 +8,8 @@
             <field name="arch" type="xml">
                 <!-- Menambahkan button di sebelah button print labels -->
                 <xpath expr="//button[@name='action_open_label_layout']" position="after">
-                    <button name="action_print_delivery_slips" type="object" string="Print Delivery Slips" class="btn-primary"/>
+                    <button name="action_print_delivery_slips" type="object" string="Print Delivery Slips" class="btn-primary"
+                            attrs="{'invisible': [('state', '!=', 'done')]}"/>
                 </xpath>
             </field>
         </record>
