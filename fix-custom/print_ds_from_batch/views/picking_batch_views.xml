@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <!-- Inherit batch transfer form view -->
+        <record id="view_picking_batch_form_inherit" model="ir.ui.view">
+            <field name="name">picking.batch.form.inherit</field>
+            <field name="model">stock.picking.batch</field>
+            <field name="inherit_id" ref="stock_picking_batch.stock_picking_batch_form"/>
+            <field name="arch" type="xml">
+                <!-- Menambahkan button di sebelah button print labels -->
+                <xpath expr="//button[@name='action_open_label_layout']" position="after">
+                    <button name="action_print_delivery_slips" type="object" string="Print Delivery Slips" class="btn-primary"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
