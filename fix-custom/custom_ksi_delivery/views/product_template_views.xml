@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="produt_template_form_view_inherited" model="ir.ui.view">
+        <field name="name">view.product.template.form inherited</field>
+        <field name="model">product.template</field>
+        <!-- Please veryfiy, that the following inherited view really sticks to the naming convention. -->
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='weight']" position="after">            
+                <field name="product_insentif" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

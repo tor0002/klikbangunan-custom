@@ -1,0 +1,42 @@
+<odoo>
+    <!-- Form view for KSIDrivers -->
+    <!-- <record id="view_ksi_drivers_form" model="ir.ui.view">
+        <field name="name">ksi.drivers.form</field>
+        <field name="model">ksi.drivers</field>
+        <field name="arch" type="xml">
+            <form string="Driver">
+                <group>
+                    <field name="x_drivers_name"/>
+                </group>
+            </form>
+        </field>
+    </record> -->
+
+    <!-- Tree view for KSIDrivers -->
+    <record id="view_ksi_drivers_tree" model="ir.ui.view">
+        <field name="name">ksi.drivers.tree</field>
+        <field name="model">ksi.drivers</field>
+        <field name="arch" type="xml">
+            <tree string="Drivers" editable="bottom">
+                <field name="x_drivers_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action to open KSIDrivers views -->
+    <record id="action_ksi_drivers" model="ir.actions.act_window">
+        <field name="name">Drivers</field>
+        <field name="res_model">ksi.drivers</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_ksi_drivers_tree"/>
+        <field name="help" type="html">
+            <p>Manage your drivers here.</p>
+        </field>
+    </record>
+
+    <!-- Menu item under Stock Settings -->
+    <menuitem id="menu_ksi_drivers"
+              name="Drivers"
+              parent="stock.menu_stock_config_settings"
+              action="action_ksi_drivers"/>
+</odoo>

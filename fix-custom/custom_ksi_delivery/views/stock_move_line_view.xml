@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- primary|extension Inherited .:Form:. view for "model" -->
+    <record id="stock_move_tree_inherited" model="ir.ui.view">
+        <field name="name">view.stock.move.line.tree inherited</field>
+        <field name="model">stock.move.line</field>
+        <!-- Please veryfiy, that the following inherited view really sticks to the naming convention. -->
+        <field name="inherit_id" ref="stock_picking_batch.view_move_line_tree" />
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='state']" position="after">            
+                <field name="x_custom_weight"/>  
+                <field name="x_total_weight"/>
+                <field name="x_custom_insentif"/>
+                <field name="x_total_insentif"/>
+            </xpath>
+        </field>
+    </record>
+    
+</odoo>

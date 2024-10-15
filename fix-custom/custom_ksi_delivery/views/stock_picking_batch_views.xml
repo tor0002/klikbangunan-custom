@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- primary|extension Inherited .:Form:. view for "model" -->
+    <record id="stock_picking_batch_form_inherited" model="ir.ui.view">
+        <field name="name">view.stock.picking.batch.form inherited</field>
+        <field name="model">stock.picking.batch</field>
+        <!-- Please veryfiy, that the following inherited view really sticks to the naming convention. -->
+        <field name="inherit_id" ref="stock_picking_batch.stock_picking_batch_form" />
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='scheduled_date']" position="after">            
+                <field name="x_drivers_name"/>  
+                <field name="x_cars"/>
+                <field name="x_sum_total_weight"/>
+                <field name="x_sum_total_insentif" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                <field name="x_sum_total_weight_insentif" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="stock_picking_batch_tree_inherited" model="ir.ui.view">
+        <field name="name">view.stock.picking.batch.tree inherited</field>
+        <field name="model">stock.picking.batch</field>
+        <!-- Please veryfiy, that the following inherited view really sticks to the naming convention. -->
+        <field name="inherit_id" ref="stock_picking_batch.stock_picking_batch_tree" />
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='scheduled_date']" position="after">            
+                <field name="x_drivers_name"/>  
+                <field name="x_cars"/>
+                <field name="x_sum_total_weight_insentif" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
