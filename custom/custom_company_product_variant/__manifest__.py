@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "ksi_return_reason",
+    'name': "custom_company_product_variant",
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
@@ -20,20 +20,13 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','stock'],
+    'depends': ['base'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        # 'views/views.xml',
-        # 'views/templates.xml',
-        # 'views/stock_picking_view.xml',
-        # 'views/return_reason_view.xml',
-        
-        # 'wizard/stock_picking_return_view.xml',
-
-        'report/report_deliveryslip.xml',
-
+        'views/views.xml',
+        'views/templates.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
