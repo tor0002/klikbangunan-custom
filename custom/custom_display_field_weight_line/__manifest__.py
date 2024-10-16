@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "custom_company_product_variant",
+    'name': "custom_display_field_weight_line",
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
@@ -20,12 +20,12 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','product'],
+    'depends': ['base'],
 
     # always loaded
     'data': [
-        'views/product_product_views.xml',
-        'security/ir.model.access.csv',
+        'views/report_delivery_document.xml',
+        # 'security/ir.model.access.csv',
         # 'views/views.xml',
         # 'views/templates.xml',
     ],

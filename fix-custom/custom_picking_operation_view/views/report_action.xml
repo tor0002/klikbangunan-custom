@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+            id="action_report_picking_custom"
+            model="stock.picking"
+            string="Print Picking List"
+            report_type="qweb-pdf"
+            name="custom_picking_operation_view.custom_report_picking"
+            file="custom_picking_operation_view.custom_report_picking"
+            print_report_name="'Picking List - %s' % (object.name)"
+        />
+    </data>
+</odoo>

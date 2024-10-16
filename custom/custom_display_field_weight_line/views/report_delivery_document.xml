@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_delivery_document_inherit" inherit_id="stock.report_delivery_document">
+        <!-- Menampilkan Total Lines dari stock.picking -->
+        <xpath expr="//div[@name='div_origin']" position="after">
+            <div t-if="o.x_total_lines">
+                <strong>Total Lines:</strong>
+                <p t-esc="o.x_total_lines"/>
+            </div>
+        </xpath>
+
+        <!-- Menampilkan Total Weight dari stock.move -->
+        <xpath expr="//table[@name='stock_move_table']//th[@name='th_sm_ordered']" position="after">
+            <th><strong>Total Weight</strong></th>
+        </xpath>
+        <xpath expr="//table[@name='stock_move_table']//tbody//tr" position="after">
+            <td>
+                <span t-field="move.total_weight"/>
+            </td>
+        </xpath>
+    </template>
+</odoo>

@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <data noupdate="0">
-        
-        
-
-    </data>
+    <record id="view_product_product_form_inherited" model="ir.ui.view">
+        <field name="name">view.product.product.form inherited</field>
+        <field name="model">product.product</field>
+        <!-- Please veryfiy, that the following inherited view really sticks to the naming convention. -->
+        <field name="inherit_id" ref="product.product_variant_easy_edit_view" />
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            
+            <xpath expr="//field[@name='barcode']" position="after">
+                <field name="x_company_id" options="{'no_create': True}"
+                    groups="base.group_multi_company"/>
+            </xpath>
+            
+        </field>
+    </record>
+    
 </odoo>
