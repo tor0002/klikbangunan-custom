@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="ProductItemKSI"
+        t-inherit="point_of_sale.ProductInfoPopup"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//div[hasclass('section-product-info-title')]" position="after">
+            <div class="section-title">
+                <span>Description</span>
+                <div class="section-title-line"></div>
+            </div>
+            <div class="section-description-body">
+                <t t-raw="props.product.description" style="text-align: left;"/>
+            </div>
+        </xpath>
+    </t>
+
+</templates>
