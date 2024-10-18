@@ -13,7 +13,7 @@
                 <field name="x_cars"/>
                 <field name="x_sum_total_weight"/>
                 <field name="x_sum_total_insentif" widget="monetary" options="{'currency_field': 'currency_id'}"/>
-                <field name="x_sum_total_weight_insentif" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                <!-- <field name="x_sum_total_weight_insentif" widget="monetary" options="{'currency_field': 'currency_id'}"/> -->
             </xpath>
         </field>
     </record>
@@ -28,7 +28,7 @@
             <xpath expr="//field[@name='scheduled_date']" position="after">            
                 <field name="x_drivers_name"/>  
                 <field name="x_cars"/>
-                <field name="x_sum_total_weight_insentif" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                <!-- <field name="x_sum_total_weight_insentif" widget="monetary" options="{'currency_field': 'currency_id'}"/> -->
             </xpath>
         </field>
     </record>

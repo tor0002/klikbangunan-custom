@@ -24,7 +24,7 @@ class StockMoveLine(models.Model):
         for line in self:
             line.x_custom_insentif = line.product_id.product_tmpl_id.product_insentif
             
-    @api.depends('x_custom_insentif', 'qty_done')
+    @api.depends('x_custom_insentif', 'qty_done','x_custom_weight')
     def _compute_total_insentif(self):
         for line in self:
-            line.x_total_insentif = line.x_custom_insentif * line.qty_done
+            line.x_total_insentif = line.x_custom_insentif * line.qty_done * line.x_custom_weight
