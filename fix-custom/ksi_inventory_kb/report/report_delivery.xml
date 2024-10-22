@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_delivery_document_inherit" inherit_id="stock.report_delivery_document">
+        <!-- Menambahkan bagian "Total All Weight" dan "Total Lines" dalam satu baris setelah div kedua -->
+        <xpath expr="//div[@name='div_sched_date']" position="after">
+            <div class="row">
+                <div class="col">
+                    <strong>Total All Weight:</strong>
+                    <span t-field="o.total_all_weight"/>
+                    <br/>
+                    <strong>Total Lines:</strong>
+                    <span t-field="o.x_total_lines"/>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>
