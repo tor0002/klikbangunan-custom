@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_divisi_tree" model="ir.ui.view">
+        <field name="name">divisi.tree</field>
+        <field name="model">divisi</field>
+        <field name="arch" type="xml">
+            <tree string="Divisi" editable="bottom">
+                <field name="x_divisi_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_divisi" model="ir.actions.act_window">
+        <field name="name">Divisi</field>
+        <field name="res_model">divisi</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_divisi_tree"/>
+        <field name="help" type="html">
+            <p>Manage your Divisi here.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_divisi_header"
+              name="Product"
+              parent="stock.menu_stock_config_settings"
+              sequence="1"/>
+
+    <!-- Submenu under the Header for Divisi -->
+    <menuitem id="menu_divisi"
+              name="Divisi"
+              parent="menu_divisi_header"
+              action="action_divisi"
+              sequence="2"/>
+
+    <record id="view_department_tree" model="ir.ui.view">
+        <field name="name">department.tree</field>
+        <field name="model">department</field>
+        <field name="arch" type="xml">
+            <tree string="Department" editable="bottom">
+                <field name="x_department_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_department" model="ir.actions.act_window">
+        <field name="name">Department</field>
+        <field name="res_model">department</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_department_tree"/>
+        <field name="help" type="html">
+            <p>Manage your Department here.</p>
+        </field>
+    </record>
+
+    <!-- Submenu under the Header for Divisi -->
+    <menuitem id="menu_department"
+              name="Department"
+              parent="menu_divisi_header"
+              action="action_department"
+              sequence="3"/>
+
+</odoo>

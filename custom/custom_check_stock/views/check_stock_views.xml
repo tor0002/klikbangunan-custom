@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- <record id="view_check_stock_form" model="ir.ui.view">
+        <field name="name">check.stock.form</field>
+        <field name="model">check.stock</field>
+        <field name="arch" type="xml">
+            <form string="Custom Replenishment">
+                <sheet>
+                    <group>
+                        <field name="orderpoint_id"/>
+                        <field name="product_id"/>
+                        <field name="warehouse_id"/>
+                        <field name="product_min_qty"/>
+                        <field name="product_max_qty"/>
+                        <field name="lead_days"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record> -->
+
+    <!-- check_stock tree view -->
+    <record id="check_stock_view_tree" model="ir.ui.view">
+        <field name="name">check.stock.tree</field>
+        <field name="model">check.stock</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="orderpoint_id"/>
+                <field name="x_product_id"/>
+                <field name="x_warehouse_id"/>
+                <field name="x_product_min_qty"/>
+                <field name="x_product_max_qty"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_check_stock" model="ir.actions.act_window">
+        <field name="name">Check Stock</field>
+        <field name="res_model">check.stock</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem id="menu_check_stock_root"
+              name="Check Stock"
+              sequence="10"
+              action="action_check_stock"/>
+
+    <menuitem id="menu_check_stock"
+              name="Stock"
+              parent="menu_check_stock_root"/>
+</odoo>

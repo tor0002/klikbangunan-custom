@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_divisi,divisi,model_divisi,,1,1,1,1
+access_department,department,model_department,,1,1,1,1

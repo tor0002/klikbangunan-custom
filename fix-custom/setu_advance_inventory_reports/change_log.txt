@@ -1,0 +1,35 @@
+Date : 5th Feb 2024
+Version : '15.7' (in __manifest__.py)
+Odoo Version : 15
+Done by : Udit Ramani
+Changes : Opening closing issue(Query related changes).
+
+Date : 1st Feb 2024
+Version : '15.6' (in __manifest__.py)
+Odoo Version : 15
+Done by : Udit Ramani
+Changes : Opening closing issue.
+
+Date : 26th Oct 2023
+Version : '15.5' (in __manifest__.py)
+Odoo Version : 15
+Done by : Udit Ramani
+Changes : Speed improvement and Coverage report added.
+
+Date : 5th May 2023
+Version : '15.4' (in __manifest__.py)
+Odoo Version : 15
+Done by : Udit Ramani
+Changes : Age and Age Breakdown report issue fixed.
+
+Date : 5th April 2023
+Version : '15.3' (in __manifest__.py)
+Odoo Version : 15
+Done by : Udit Ramani
+Changes : Out of stock report sp changes, 0 stock product was not taken in the report.
+
+Date : 31st January 2023
+Version : '15.2' (in __manifest__.py)
+Odoo Version : 15
+Done by : Udit Ramani
+Changes : Changes in the SP of age and age breakdown report related to remaining > 0 and added again different test cases union all.
