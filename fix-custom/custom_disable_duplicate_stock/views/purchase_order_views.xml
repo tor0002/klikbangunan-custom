@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_po_link_so_form_inherited" model="ir.ui.view">
+        <field name="name">view.po_link_so.form inherited</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                <button class="oe_stat_button" icon="fa-dollar" type="action" name="428">
+                    <field widget="statinfo" name="x_auto_purchase_order_id_sale_order_count" string="Sales"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>
